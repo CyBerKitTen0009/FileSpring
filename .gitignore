@@ -1,0 +1,8 @@
+/target/
+/.cache/
+/.filespring/
+/demo/
+/artifacts/
+*.db-shm
+*.db-wal
+.DS_Store

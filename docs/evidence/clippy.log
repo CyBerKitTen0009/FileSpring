@@ -1,0 +1,7 @@
+Platform: macOS-26.6.2-arm64-arm-64bit
+Command: cargo clippy --offline --locked --all-targets --features desktop -- -D warnings
+
+    Checking filespring v0.1.0 (/Users/apple/Projects/FileSpring)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.95s
+
+Exit code: 0

@@ -1,0 +1,31 @@
+{
+  "command": "CARGO_HOME=\"$PWD/.cache/cargo\" cargo run --offline --release --example scan_benchmark",
+  "capture": "Exact result values from the local tool output, saved after execution",
+  "arch": "aarch64",
+  "build": "release",
+  "dataset": "synthetic regular files in an isolated temporary directory",
+  "os": "macos",
+  "results": [
+    {
+      "bytes_per_file": 28,
+      "cache": "warm after generation; not a cold HDD test",
+      "files": 1000,
+      "fixture_generation_ms": 65.20175,
+      "scan_ms": [3.421916, 2.807709, 2.8917919999999997]
+    },
+    {
+      "bytes_per_file": 28,
+      "cache": "warm after generation; not a cold HDD test",
+      "files": 10000,
+      "fixture_generation_ms": 648.05975,
+      "scan_ms": [36.687959, 34.767458, 34.678625]
+    },
+    {
+      "bytes_per_file": 28,
+      "cache": "warm after generation; not a cold HDD test",
+      "files": 100000,
+      "fixture_generation_ms": 8545.935042,
+      "scan_ms": [388.33795799999996, 372.405417, 357.73108399999995]
+    }
+  ]
+}

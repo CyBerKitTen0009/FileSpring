@@ -1,0 +1,103 @@
+{
+  "result": "passed",
+  "fixture": "generated temporary files only",
+  "checks": [
+    {
+      "command": [
+        "plan",
+        "copy",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/in/中文测试 & sample.txt",
+        "--to",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/out"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "apply",
+        "10516aa1-8f90-4f54-9af7-9baf39089ca5"
+      ],
+      "exit_code": 1,
+      "stderr": "Error: Review with `show`, then pass --confirm to change files\n"
+    },
+    {
+      "command": [
+        "apply",
+        "10516aa1-8f90-4f54-9af7-9baf39089ca5",
+        "--confirm"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "show",
+        "10516aa1-8f90-4f54-9af7-9baf39089ca5"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "undo",
+        "10516aa1-8f90-4f54-9af7-9baf39089ca5",
+        "--confirm"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "plan",
+        "move",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/in/中文测试 & sample.txt",
+        "--to",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/out"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "apply",
+        "c562f2d9-278d-444e-89bd-7a571d6d64e1"
+      ],
+      "exit_code": 1,
+      "stderr": "Error: Review with `show`, then pass --confirm to change files\n"
+    },
+    {
+      "command": [
+        "apply",
+        "c562f2d9-278d-444e-89bd-7a571d6d64e1",
+        "--confirm"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "show",
+        "c562f2d9-278d-444e-89bd-7a571d6d64e1"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "undo",
+        "c562f2d9-278d-444e-89bd-7a571d6d64e1",
+        "--confirm"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "history"
+      ],
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ]
+}
