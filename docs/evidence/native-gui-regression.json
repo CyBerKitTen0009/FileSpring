@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-06",
+  "platform": "macOS 26.6.2 / Apple Silicon",
+  "scope": "Generated demo files only; native UI actions observed with accessibility trees and screenshots. Database inspected read-only afterward.",
+  "ui_observations": {
+    "move_and_confirmed_undo": "Passed: source 17 -> 16 -> 17; target 1 -> 2 -> 1",
+    "cmd_multiselection": "Passed: 2 selected",
+    "shift_range": "Passed: 5 selected",
+    "cmd_a": "Passed: 17 selected",
+    "right_cmd_l": "Passed: right path focused and navigated to Inbox",
+    "back_history": "Passed: Library then demo",
+    "native_folder_picker": "Passed: chose demo/Library",
+    "context_menu": "Passed: preview/open, copy path, preview copy shown",
+    "native_copy_paste": "Passed: Prepared Copy, not executed",
+    "native_cut_paste": "Passed: Prepared Move, not executed",
+    "text_preview": "Passed: generated Chinese Markdown text visible; status Ready",
+    "history_idle_status": "Passed: status Ready after read-only history job",
+    "language_and_theme": "Passed: English/light shown, returned to Chinese/dark",
+    "internal_drag": "Not verified: native automation produced release only in temporary diagnostics; no press or drag_started observed; no preview generated. Manual drag/drop remains required.",
+    "external_drag": "Not tested"
+  },
+  "persisted_plans": [
+    {
+      "id": "6d579bd0-6018-4f65-aa06-ec54c97d9d68",
+      "action": "Copy",
+      "state": "RolledBack",
+      "requests": [
+        {
+          "action": "Copy",
+          "source": "demo/Inbox/项目笔记 09.txt",
+          "destination": "demo/Library/项目笔记 09.txt"
+        }
+      ]
+    },
+    {
+      "id": "13e6b0d5-307e-4c5b-ac07-bb3f69e09b47",
+      "action": "Move",
+      "state": "RolledBack",
+      "requests": [
+        {
+          "action": "Move",
+          "source": "demo/Inbox/项目笔记 08.txt",
+          "destination": "demo/Library/项目笔记 08.txt"
+        }
+      ]
+    },
+    {
+      "id": "fa62d7f1-18da-4489-a8fc-8bc8a99daec3",
+      "action": "Copy",
+      "state": "Prepared",
+      "requests": [
+        {
+          "action": "Copy",
+          "source": "demo/Inbox/项目笔记 09.txt",
+          "destination": "demo/Library/项目笔记 09.txt"
+        }
+      ]
+    },
+    {
+      "id": "309f3cdc-bebc-45e2-a992-5bb52338fa6d",
+      "action": "Move",
+      "state": "Prepared",
+      "requests": [
+        {
+          "action": "Move",
+          "source": "demo/Inbox/项目笔记 08.txt",
+          "destination": "demo/Library/项目笔记 08.txt"
+        }
+      ]
+    }
+  ],
+  "final_file_counts": {
+    "Inbox": 17,
+    "Library": 1
+  },
+  "temporary_transfer_files_remaining": 0,
+  "limitations": [
+    "No Windows/Linux native UI run",
+    "No system file clipboard protocol",
+    "No manual or external native drag/drop verification",
+    "No 100k-entry native window performance or low-spec hardware measurement"
+  ]
+}

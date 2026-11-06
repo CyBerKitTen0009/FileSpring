@@ -39,6 +39,56 @@ enum Scan {
     Error(String),
 }
 
+#[derive(Clone)]
+struct FileClipboard {
+    action: Action,
+    sources: Vec<PathBuf>,
+    text: String,
+}
+
+impl FileClipboard {
+    fn new(action: Action, sources: Vec<PathBuf>) -> Option<Self> {
+        if sources.is_empty() {
+            return None;
+        }
+        let text = sources
+            .iter()
+            .map(|p| p.display().to_string())
+            .collect::<Vec<_>>()
+            .join("\n");
+        Some(Self {
+            action,
+            sources,
+            text,
+        })
+    }
+    fn matches(&self, text: &str) -> bool {
+        self.text == text
+    }
+}
+
+#[derive(Debug, PartialEq)]
+enum ClipboardCommand {
+    Copy,
+    Cut,
+    Paste(String),
+}
+
+fn clipboard_commands(ctx: &egui::Context) -> Vec<ClipboardCommand> {
+    ctx.input(|input| {
+        input
+            .events
+            .iter()
+            .filter_map(|event| match event {
+                egui::Event::Copy => Some(ClipboardCommand::Copy),
+                egui::Event::Cut => Some(ClipboardCommand::Cut),
+                egui::Event::Paste(text) => Some(ClipboardCommand::Paste(text.clone())),
+                _ => None,
+            })
+            .collect()
+    })
+}
+
 struct Pane {
     path: PathBuf,
     input: String,
@@ -180,7 +230,7 @@ pub struct App {
     plan: Option<Plan>,
     history: Vec<Plan>,
     activity: bool,
-    clipboard: Option<(Action, Vec<PathBuf>)>,
+    clipboard: Option<FileClipboard>,
     message: String,
     zh: bool,
     light: bool,
@@ -331,7 +381,12 @@ impl App {
                     self.message = error;
                     self.plan = None;
                 }
-                Event::Idle => self.busy = false,
+                Event::Idle => {
+                    self.busy = false;
+                    if matches!(self.message.as_str(), "正在处理…" | "Working…") {
+                        self.message = self.t("就绪", "Ready").into();
+                    }
+                }
             }
         }
         if self.busy || self.panes.iter().any(|p| p.scanning) {
@@ -350,22 +405,38 @@ impl App {
                 .map(|i| self.panes[a].entries[*i].path.clone())
                 .collect();
         }
-        if ctx.input_mut(|i| i.consume_key(egui::Modifiers::COMMAND, egui::Key::C)) {
-            self.clipboard = Some((
-                Action::Copy,
-                self.panes[a].selected.iter().cloned().collect(),
-            ));
-        }
-        if ctx.input_mut(|i| i.consume_key(egui::Modifiers::COMMAND, egui::Key::X)) {
-            self.clipboard = Some((
-                Action::Move,
-                self.panes[a].selected.iter().cloned().collect(),
-            ));
-        }
-        if ctx.input_mut(|i| i.consume_key(egui::Modifiers::COMMAND, egui::Key::V))
-            && let Some((action, sources)) = self.clipboard.clone()
-        {
-            self.prepare(action, sources, a);
+        // Winit translates native Cmd/Ctrl+C/X/V into clipboard events, not Key events.
+        // Put useful path text on the system clipboard and require it to still match
+        // before using the app's original paths. External text must not paste stale files.
+        for command in clipboard_commands(ctx) {
+            match command {
+                ClipboardCommand::Copy | ClipboardCommand::Cut => {
+                    let action = if command == ClipboardCommand::Copy {
+                        Action::Copy
+                    } else {
+                        Action::Move
+                    };
+                    if let Some(clipboard) =
+                        FileClipboard::new(action, self.panes[a].selected.iter().cloned().collect())
+                    {
+                        ctx.copy_text(clipboard.text.clone());
+                        self.clipboard = Some(clipboard);
+                        self.message = self
+                            .t(
+                                "已记住所选文件；粘贴时将先预演",
+                                "Files selected for transfer; paste will open a preview",
+                            )
+                            .into();
+                    }
+                }
+                ClipboardCommand::Paste(text) => {
+                    if let Some(clipboard) = self.clipboard.clone()
+                        && clipboard.matches(&text)
+                    {
+                        self.prepare(clipboard.action, clipboard.sources, a);
+                    }
+                }
+            }
         }
         if ctx.input_mut(|i| i.consume_key(egui::Modifiers::NONE, egui::Key::F5)) {
             self.panes[a].refresh(&self.scope, ctx);
@@ -534,6 +605,7 @@ impl App {
                                                     }),
                                             )
                                             .selected(selected)
+                                            .sense(egui::Sense::click_and_drag())
                                             .frame(selected)
                                             .truncate(),
                                     );
@@ -561,7 +633,15 @@ impl App {
                             if response.double_clicked() {
                                 open = Some(entry.path.clone());
                             }
-                            response.dnd_set_drag_payload(vec![entry.path.clone()]);
+                            response.dnd_set_drag_payload(if selected {
+                                self.panes[index]
+                                    .selected
+                                    .iter()
+                                    .cloned()
+                                    .collect::<Vec<_>>()
+                            } else {
+                                vec![entry.path.clone()]
+                            });
                             response.clone().on_hover_text(format!(
                                 "{}{}",
                                 entry.path.display(),
@@ -630,10 +710,16 @@ impl App {
                     .color(MUTED),
                 );
             });
-        if inner.response.contains_pointer() && ui.input(|i| i.pointer.any_pressed()) {
+        // A pane remains a drop target over its scroll area and other child widgets.
+        let pointer_inside =
+            ctx.rect_contains_pointer(inner.response.layer_id, inner.response.rect);
+        if pointer_inside && ui.input(|i| i.pointer.any_pressed()) {
             self.active = index;
         }
-        if let Some(paths) = inner.response.dnd_release_payload::<Vec<PathBuf>>() {
+        if pointer_inside
+            && ui.input(|i| i.pointer.any_released())
+            && let Some(paths) = egui::DragAndDrop::take_payload::<Vec<PathBuf>>(&ctx)
+        {
             self.prepare(Action::Copy, paths.as_ref().clone(), index);
         }
         if let Some(path) = navigate {
@@ -1020,6 +1106,45 @@ fn state_name(state: PlanState, zh: bool) -> &'static str {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn native_clipboard_events_handle_files_and_reject_stale_external_text() {
+        let ctx = egui::Context::default();
+        let clipboard = FileClipboard::new(
+            Action::Copy,
+            vec![
+                PathBuf::from("/fixture/中文 note.txt"),
+                PathBuf::from("/fixture/b.txt"),
+            ],
+        )
+        .unwrap();
+        let mut commands = vec![];
+        let mut output = ctx.run_ui(
+            egui::RawInput {
+                events: vec![
+                    egui::Event::Copy,
+                    egui::Event::Cut,
+                    egui::Event::Paste(clipboard.text.clone()),
+                ],
+                ..Default::default()
+            },
+            |_ui| {
+                commands = clipboard_commands(&ctx);
+            },
+        );
+        assert_eq!(
+            commands,
+            [
+                ClipboardCommand::Copy,
+                ClipboardCommand::Cut,
+                ClipboardCommand::Paste(clipboard.text.clone())
+            ]
+        );
+        assert!(clipboard.matches(&clipboard.text));
+        assert!(!clipboard.matches("Unrelated external text"));
+        assert_eq!(clipboard.sources[0], Path::new("/fixture/中文 note.txt"));
+        assert!(FileClipboard::new(Action::Copy, vec![]).is_none());
+        output.textures_delta.clear();
+    }
     #[test]
     fn text_preview_is_bounded_and_respects_scope() {
         let fixture = tempfile::tempdir().unwrap();

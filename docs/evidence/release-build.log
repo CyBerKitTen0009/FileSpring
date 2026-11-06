@@ -1,2 +1,7 @@
+Platform: macOS-26.6.2-arm64-arm-64bit
+Command: cargo build --offline --locked --release --features desktop
+
    Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
-    Finished `release` profile [optimized] target(s) in 25.93s
+    Finished `release` profile [optimized] target(s) in 14.40s
+
+Exit code: 0
