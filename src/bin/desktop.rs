@@ -1,3 +1,5 @@
+#![cfg_attr(all(windows, not(debug_assertions)), windows_subsystem = "windows")]
+
 mod app;
 
 use anyhow::Result;
@@ -18,7 +20,19 @@ struct Args {
     smoke_seconds: Option<u64>,
 }
 
-fn main() -> Result<()> {
+fn main() {
+    if let Err(error) = run() {
+        eprintln!("FileSpring: {error:#}");
+        rfd::MessageDialog::new()
+            .set_title("FileSpring")
+            .set_description(format!("无法启动 / Unable to start\n\n{error:#}"))
+            .set_level(rfd::MessageLevel::Error)
+            .show();
+        std::process::exit(1);
+    }
+}
+
+fn run() -> Result<()> {
     let args = Args::parse();
     let roots = if args.root.is_empty() {
         let Some(root) = rfd::FileDialog::new()

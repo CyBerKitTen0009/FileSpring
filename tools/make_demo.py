@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Generate fixtures inside this project's demo/ only. Existing data is preserved."""
 from pathlib import Path
+import argparse
 import csv
 import io
 import struct
 import zlib
 
-root = Path(__file__).resolve().parents[1] / "demo"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parents[1] / "demo")
+root = parser.parse_args().output.resolve()
 inbox = root / "Inbox"
 library = root / "Library"
 inbox.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,27 @@
+{
+  "negative_pe_checks": [
+    {
+      "case": "wrong_platform",
+      "result": "rejected"
+    },
+    {
+      "case": "truncated",
+      "result": "rejected"
+    },
+    {
+      "case": "wrong_subsystem",
+      "result": "rejected"
+    }
+  ],
+  "independent_llvm_inspection": "windows-llvm-inspection.log",
+  "windows_runtime_executed": false,
+  "package_checks": {
+    "zip_integrity": "passed",
+    "all_member_hashes": "passed",
+    "crlf_ascii_launchers": "passed",
+    "generated_samples": 18,
+    "state_databases_included": false,
+    "matches_latest_release_binaries": true,
+    "windows_runtime_executed": false
+  }
+}

@@ -1,0 +1,940 @@
+
+File: target/x86_64-pc-windows-msvc/release/filespring-desktop.exe
+Format: COFF-x86-64
+Arch: x86_64
+AddressSize: 64bit
+ImageFileHeader {
+  Machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
+  SectionCount: 9
+  TimeDateStamp: 2026-11-07 17:56:23 (0x6AEF6647)
+  PointerToSymbolTable: 0x0
+  SymbolCount: 0
+  StringTableSize: 0
+  OptionalHeaderSize: 240
+  Characteristics [ (0x22)
+    IMAGE_FILE_EXECUTABLE_IMAGE (0x2)
+    IMAGE_FILE_LARGE_ADDRESS_AWARE (0x20)
+  ]
+}
+ImageOptionalHeader {
+  Magic: 0x20B
+  MajorLinkerVersion: 14
+  MinorLinkerVersion: 0
+  SizeOfCode: 7852544
+  SizeOfInitializedData: 2452992
+  SizeOfUninitializedData: 0
+  AddressOfEntryPoint: 0x731F40
+  BaseOfCode: 0x1000
+  ImageBase: 0x140000000
+  SectionAlignment: 4096
+  FileAlignment: 512
+  MajorOperatingSystemVersion: 6
+  MinorOperatingSystemVersion: 0
+  MajorImageVersion: 0
+  MinorImageVersion: 0
+  MajorSubsystemVersion: 6
+  MinorSubsystemVersion: 0
+  SizeOfImage: 10342400
+  SizeOfHeaders: 1024
+  CheckSum: 0x0
+  Subsystem: IMAGE_SUBSYSTEM_WINDOWS_GUI (0x2)
+  Characteristics [ (0x8160)
+    IMAGE_DLL_CHARACTERISTICS_DYNAMIC_BASE (0x40)
+    IMAGE_DLL_CHARACTERISTICS_HIGH_ENTROPY_VA (0x20)
+    IMAGE_DLL_CHARACTERISTICS_NX_COMPAT (0x100)
+    IMAGE_DLL_CHARACTERISTICS_TERMINAL_SERVER_AWARE (0x8000)
+  ]
+  SizeOfStackReserve: 1048576
+  SizeOfStackCommit: 4096
+  SizeOfHeapReserve: 1048576
+  SizeOfHeapCommit: 4096
+  NumberOfRvaAndSize: 16
+  DataDirectory {
+    ExportTableRVA: 0x0
+    ExportTableSize: 0x0
+    ImportTableRVA: 0x914B68
+    ImportTableSize: 0x17C
+    ResourceTableRVA: 0x9D5000
+    ResourceTableSize: 0x3B0
+    ExceptionTableRVA: 0x9A7000
+    ExceptionTableSize: 0x2AC18
+    CertificateTableRVA: 0x0
+    CertificateTableSize: 0x0
+    BaseRelocationTableRVA: 0x9D6000
+    BaseRelocationTableSize: 0x63D0
+    DebugRVA: 0x914A30
+    DebugSize: 0x1C
+    ArchitectureRVA: 0x0
+    ArchitectureSize: 0x0
+    GlobalPtrRVA: 0x0
+    GlobalPtrSize: 0x0
+    TLSTableRVA: 0x9084A0
+    TLSTableSize: 0x28
+    LoadConfigTableRVA: 0x8FD490
+    LoadConfigTableSize: 0x140
+    BoundImportRVA: 0x0
+    BoundImportSize: 0x0
+    IATRVA: 0x915710
+    IATSize: 0xA28
+    DelayImportDescriptorRVA: 0x0
+    DelayImportDescriptorSize: 0x0
+    CLRRuntimeHeaderRVA: 0x0
+    CLRRuntimeHeaderSize: 0x0
+    ReservedRVA: 0x0
+    ReservedSize: 0x0
+  }
+}
+DOSHeader {
+  Magic: MZ
+  UsedBytesInTheLastPage: 120
+  FileSizeInPages: 1
+  NumberOfRelocationItems: 0
+  HeaderSizeInParagraphs: 4
+  MinimumExtraParagraphs: 0
+  MaximumExtraParagraphs: 0
+  InitialRelativeSS: 0
+  InitialSP: 0
+  Checksum: 0
+  InitialIP: 0
+  InitialRelativeCS: 0
+  AddressOfRelocationTable: 64
+  OverlayNumber: 0
+  OEMid: 0
+  OEMinfo: 0
+  AddressOfNewExeHeader: 120
+}
+Import {
+  Name: kernel32.dll
+  ImportLookupTableRVA: 0x914CE8
+  ImportAddressTableRVA: 0x915710
+  Symbol: AcquireSRWLockExclusive (0)
+  Symbol: AddVectoredExceptionHandler (16)
+  Symbol: AreFileApisANSI (0)
+  Symbol: CloseHandle (0)
+  Symbol: CompareStringW (0)
+  Symbol: CreateDirectoryW (113)
+  Symbol: CreateFileMappingW (127)
+  Symbol: CreateFileW (130)
+  Symbol: CreateHardLinkW (134)
+  Symbol: CreateMutexA (142)
+  Symbol: CreateThread (166)
+  Symbol: CreateWaitableTimerExW (180)
+  Symbol: DeleteCriticalSection (195)
+  Symbol: DeleteFileW (0)
+  Symbol: DuplicateHandle (0)
+  Symbol: EncodePointer (0)
+  Symbol: EnterCriticalSection (229)
+  Symbol: ExitProcess (274)
+  Symbol: ExitThread (275)
+  Symbol: FindClose (0)
+  Symbol: FindFirstFileExA (0)
+  Symbol: FindFirstFileExW (0)
+  Symbol: FindNextFileA (0)
+  Symbol: FindNextFileW (0)
+  Symbol: FlushFileBuffers (0)
+  Symbol: FlushViewOfFile (0)
+  Symbol: FormatMessageW (0)
+  Symbol: FreeEnvironmentStringsW (347)
+  Symbol: FreeLibrary (0)
+  Symbol: FreeLibraryAndExitThread (0)
+  Symbol: GetACP (0)
+  Symbol: GetCPInfo (0)
+  Symbol: GetCommandLineA (382)
+  Symbol: GetCommandLineW (383)
+  Symbol: GetConsoleCP (0)
+  Symbol: GetConsoleMode (0)
+  Symbol: GetConsoleOutputCP (0)
+  Symbol: GetConsoleScreenBufferInfo (0)
+  Symbol: GetCurrentDirectoryW (430)
+  Symbol: GetCurrentProcess (438)
+  Symbol: GetCurrentProcessId (439)
+  Symbol: GetCurrentThread (442)
+  Symbol: GetCurrentThreadId (443)
+  Symbol: GetDiskFreeSpaceW (0)
+  Symbol: GetDriveTypeW (0)
+  Symbol: GetEnvironmentStringsW (467)
+  Symbol: GetEnvironmentVariableW (469)
+  Symbol: GetFileAttributesExW (0)
+  Symbol: GetFileAttributesW (0)
+  Symbol: GetFileInformationByHandle (0)
+  Symbol: GetFileInformationByHandleEx (0)
+  Symbol: GetFileSizeEx (0)
+  Symbol: GetFileType (0)
+  Symbol: GetFinalPathNameByHandleW (0)
+  Symbol: GetFullPathNameW (0)
+  Symbol: GetLastError (0)
+  Symbol: GetModuleFileNameA (0)
+  Symbol: GetModuleFileNameW (0)
+  Symbol: GetModuleHandleA (0)
+  Symbol: GetModuleHandleExW (0)
+  Symbol: GetModuleHandleW (0)
+  Symbol: GetOEMCP (0)
+  Symbol: GetOverlappedResult (562)
+  Symbol: GetProcAddress (0)
+  Symbol: GetProcessHeap (0)
+  Symbol: GetStartupInfoW (620)
+  Symbol: GetStdHandle (0)
+  Symbol: GetStringTypeW (0)
+  Symbol: GetSystemInfo (637)
+  Symbol: GetSystemTimeAsFileTime (644)
+  Symbol: GetSystemTimePreciseAsFileTime (645)
+  Symbol: GetTempPathW (0)
+  Symbol: GetTickCount64 (679)
+  Symbol: GetTimeZoneInformation (683)
+  Symbol: GetUserPreferredUILanguages (0)
+  Symbol: GetVolumePathNameW (0)
+  Symbol: GlobalAlloc (0)
+  Symbol: GlobalFree (0)
+  Symbol: GlobalLock (0)
+  Symbol: GlobalSize (0)
+  Symbol: GlobalUnlock (0)
+  Symbol: HeapAlloc (0)
+  Symbol: HeapCompact (0)
+  Symbol: HeapCreate (0)
+  Symbol: HeapDestroy (0)
+  Symbol: HeapFree (0)
+  Symbol: HeapReAlloc (0)
+  Symbol: HeapSize (0)
+  Symbol: HeapValidate (0)
+  Symbol: InitializeCriticalSection (762)
+  Symbol: InitializeCriticalSectionAndSpinCount (763)
+  Symbol: InitializeSListHead (767)
+  Symbol: InitializeSRWLock (768)
+  Symbol: IsDebuggerPresent (785)
+  Symbol: IsProcessorFeaturePresent (792)
+  Symbol: IsValidCodePage (0)
+  Symbol: LCMapStringW (0)
+  Symbol: LeaveCriticalSection (845)
+  Symbol: LoadLibraryA (0)
+  Symbol: LoadLibraryExA (0)
+  Symbol: LoadLibraryExW (0)
+  Symbol: LoadLibraryW (0)
+  Symbol: LocalFree (0)
+  Symbol: LocaleNameToLCID (0)
+  Symbol: LockFileEx (871)
+  Symbol: MapViewOfFile (0)
+  Symbol: MultiByteToWideChar (0)
+  Symbol: OutputDebugStringA (918)
+  Symbol: QueryPerformanceCounter (964)
+  Symbol: QueryPerformanceFrequency (965)
+  Symbol: RaiseException (977)
+  Symbol: ReadFile (991)
+  Symbol: ReleaseMutex (1003)
+  Symbol: ReleaseSRWLockExclusive (1006)
+  Symbol: RtlCaptureContext (1030)
+  Symbol: RtlLookupFunctionEntry (1036)
+  Symbol: RtlPcToFileHeader (1037)
+  Symbol: RtlUnwindEx (1041)
+  Symbol: RtlVirtualUnwind (1042)
+  Symbol: SetConsoleMode (0)
+  Symbol: SetConsoleTextAttribute (0)
+  Symbol: SetEndOfFile (0)
+  Symbol: SetEnvironmentVariableA (1090)
+  Symbol: SetFileInformationByHandle (0)
+  Symbol: SetFilePointerEx (0)
+  Symbol: SetFileTime (0)
+  Symbol: SetLastError (0)
+  Symbol: SetStdHandle (0)
+  Symbol: SetThreadErrorMode (0)
+  Symbol: SetThreadStackGuarantee (1167)
+  Symbol: SetUnhandledExceptionFilter (1179)
+  Symbol: SetWaitableTimer (1186)
+  Symbol: Sleep (0)
+  Symbol: SwitchToThread (1200)
+  Symbol: TerminateProcess (1205)
+  Symbol: TlsAlloc (1209)
+  Symbol: TlsFree (1210)
+  Symbol: TlsGetValue (1211)
+  Symbol: TlsSetValue (1212)
+  Symbol: TryAcquireSRWLockExclusive (1216)
+  Symbol: TryEnterCriticalSection (1218)
+  Symbol: UnhandledExceptionFilter (1223)
+  Symbol: UnlockFileEx (1225)
+  Symbol: UnmapViewOfFile (0)
+  Symbol: VirtualProtect (0)
+  Symbol: WaitForSingleObject (1261)
+  Symbol: WaitForSingleObjectEx (1262)
+  Symbol: WideCharToMultiByte (0)
+  Symbol: WriteConsoleW (0)
+  Symbol: WriteFile (1305)
+  Symbol: lstrlenW (0)
+}
+Import {
+  Name: user32.dll
+  ImportLookupTableRVA: 0x9151A8
+  ImportAddressTableRVA: 0x915BD0
+  Symbol: AdjustWindowRectEx (0)
+  Symbol: CallWindowProcW (0)
+  Symbol: ChangeDisplaySettingsExW (0)
+  Symbol: ClientToScreen (0)
+  Symbol: ClipCursor (0)
+  Symbol: CloseClipboard (0)
+  Symbol: CloseTouchInputHandle (67)
+  Symbol: CreateIcon (0)
+  Symbol: CreateIconFromResourceEx (0)
+  Symbol: CreateIconIndirect (0)
+  Symbol: CreateWindowExW (0)
+  Symbol: DefWindowProcW (0)
+  Symbol: DestroyCursor (0)
+  Symbol: DestroyIcon (0)
+  Symbol: DestroyWindow (0)
+  Symbol: DispatchMessageW (0)
+  Symbol: EmptyClipboard (0)
+  Symbol: EnableMenuItem (0)
+  Symbol: EnumDisplayMonitors (0)
+  Symbol: FlashWindowEx (0)
+  Symbol: GetActiveWindow (0)
+  Symbol: GetAsyncKeyState (0)
+  Symbol: GetClassInfoExW (0)
+  Symbol: GetClassNameW (0)
+  Symbol: GetClientRect (0)
+  Symbol: GetClipCursor (0)
+  Symbol: GetClipboardData (0)
+  Symbol: GetCursorPos (0)
+  Symbol: GetDC (0)
+  Symbol: GetForegroundWindow (0)
+  Symbol: GetKeyState (0)
+  Symbol: GetKeyboardLayout (0)
+  Symbol: GetKeyboardState (0)
+  Symbol: GetMenu (0)
+  Symbol: GetMonitorInfoW (0)
+  Symbol: GetPropW (0)
+  Symbol: GetRawInputData (0)
+  Symbol: GetSystemMenu (0)
+  Symbol: GetSystemMetrics (0)
+  Symbol: GetTouchInputInfo (387)
+  Symbol: GetWindowLongPtrW (0)
+  Symbol: GetWindowLongW (0)
+  Symbol: GetWindowPlacement (0)
+  Symbol: GetWindowRect (0)
+  Symbol: GetWindowTextLengthW (0)
+  Symbol: GetWindowTextW (0)
+  Symbol: InvalidateRgn (0)
+  Symbol: IsClipboardFormatAvailable (0)
+  Symbol: IsIconic (0)
+  Symbol: IsProcessDPIAware (0)
+  Symbol: IsWindowVisible (0)
+  Symbol: LoadCursorW (0)
+  Symbol: MapVirtualKeyExW (0)
+  Symbol: MapVirtualKeyW (0)
+  Symbol: MessageBoxW (0)
+  Symbol: MonitorFromPoint (0)
+  Symbol: MonitorFromRect (0)
+  Symbol: MonitorFromWindow (0)
+  Symbol: MsgWaitForMultipleObjectsEx (0)
+  Symbol: OpenClipboard (0)
+  Symbol: PeekMessageW (0)
+  Symbol: PostMessageW (0)
+  Symbol: RedrawWindow (0)
+  Symbol: RegisterClassExW (0)
+  Symbol: RegisterClipboardFormatW (0)
+  Symbol: RegisterRawInputDevices (0)
+  Symbol: RegisterTouchWindow (580)
+  Symbol: RegisterWindowMessageA (0)
+  Symbol: ReleaseCapture (0)
+  Symbol: ReleaseDC (0)
+  Symbol: RemovePropW (0)
+  Symbol: ScreenToClient (0)
+  Symbol: SendInput (0)
+  Symbol: SendMessageW (0)
+  Symbol: SetCapture (0)
+  Symbol: SetClipboardData (0)
+  Symbol: SetCursor (0)
+  Symbol: SetCursorPos (0)
+  Symbol: SetForegroundWindow (0)
+  Symbol: SetPropW (0)
+  Symbol: SetWindowDisplayAffinity (0)
+  Symbol: SetWindowLongPtrW (0)
+  Symbol: SetWindowLongW (0)
+  Symbol: SetWindowPlacement (0)
+  Symbol: SetWindowPos (0)
+  Symbol: SetWindowTextW (0)
+  Symbol: ShowCursor (0)
+  Symbol: ShowWindow (0)
+  Symbol: SystemParametersInfoA (0)
+  Symbol: ToUnicodeEx (0)
+  Symbol: TrackMouseEvent (0)
+  Symbol: TranslateMessage (0)
+  Symbol: ValidateRect (0)
+}
+Import {
+  Name: combase.dll
+  ImportLookupTableRVA: 0x915498
+  ImportAddressTableRVA: 0x915EC0
+  Symbol: CoCreateFreeThreadedMarshaler (0)
+  Symbol: CoTaskMemFree (0)
+}
+Import {
+  Name: ole32.dll
+  ImportLookupTableRVA: 0x9154B0
+  ImportAddressTableRVA: 0x915ED8
+  Symbol: CoCreateInstance (0)
+  Symbol: CoInitializeEx (0)
+  Symbol: CoUninitialize (0)
+  Symbol: OleInitialize (0)
+  Symbol: RegisterDragDrop (0)
+  Symbol: RevokeDragDrop (0)
+}
+Import {
+  Name: gdi32.dll
+  ImportLookupTableRVA: 0x9154E8
+  ImportAddressTableRVA: 0x915F10
+  Symbol: ChoosePixelFormat (22)
+  Symbol: CreateBitmap (0)
+  Symbol: CreateCompatibleBitmap (0)
+  Symbol: CreateRectRgn (0)
+  Symbol: DeleteObject (0)
+  Symbol: DescribePixelFormat (254)
+  Symbol: GetDeviceCaps (0)
+  Symbol: SetBitmapBits (0)
+  Symbol: SetPixelFormat (563)
+  Symbol: SwapBuffers (587)
+}
+Import {
+  Name: dwrite.dll
+  ImportLookupTableRVA: 0x915540
+  ImportAddressTableRVA: 0x915F68
+  Symbol: DWriteCreateFactory (0)
+}
+Import {
+  Name: oleaut32.dll
+  ImportLookupTableRVA: 0x915550
+  ImportAddressTableRVA: 0x915F78
+  Symbol: GetErrorInfo (0)
+  Symbol: SafeArrayCreateVector (0)
+  Symbol: SafeArrayPutElement (0)
+  Symbol: SetErrorInfo (0)
+  Symbol: SysAllocStringLen (0)
+  Symbol: SysFreeString (0)
+  Symbol: SysStringLen (0)
+  Symbol: VariantClear (0)
+}
+Import {
+  Name: ntdll.dll
+  ImportLookupTableRVA: 0x915598
+  ImportAddressTableRVA: 0x915FC0
+  Symbol: NtReadFile (121)
+  Symbol: NtWriteFile (160)
+  Symbol: RtlNtStatusToDosError (0)
+}
+Import {
+  Name: uiautomationcore.dll
+  ImportLookupTableRVA: 0x9155B8
+  ImportAddressTableRVA: 0x915FE0
+  Symbol: UiaGetReservedMixedAttributeValue (0)
+  Symbol: UiaGetReservedNotSupportedValue (0)
+  Symbol: UiaHostProviderFromHwnd (0)
+  Symbol: UiaLookupId (0)
+  Symbol: UiaRaiseAutomationEvent (0)
+  Symbol: UiaRaiseAutomationPropertyChangedEvent (0)
+  Symbol: UiaReturnRawElementProvider (0)
+}
+Import {
+  Name: api-ms-win-core-winrt-error-l1-1-0.dll
+  ImportLookupTableRVA: 0x9155F8
+  ImportAddressTableRVA: 0x916020
+  Symbol: RoOriginateErrorW (0)
+}
+Import {
+  Name: shell32.dll
+  ImportLookupTableRVA: 0x915608
+  ImportAddressTableRVA: 0x916030
+  Symbol: DragFinish (0)
+  Symbol: DragQueryFileW (0)
+  Symbol: SHCreateItemFromParsingName (0)
+}
+Import {
+  Name: dwmapi.dll
+  ImportLookupTableRVA: 0x915628
+  ImportAddressTableRVA: 0x916050
+  Symbol: DwmEnableBlurBehindWindow (0)
+  Symbol: DwmSetWindowAttribute (0)
+}
+Import {
+  Name: bcryptprimitives.dll
+  ImportLookupTableRVA: 0x915640
+  ImportAddressTableRVA: 0x916068
+  Symbol: ProcessPrng (0)
+}
+Import {
+  Name: api-ms-win-core-synch-l1-2-0.dll
+  ImportLookupTableRVA: 0x915650
+  ImportAddressTableRVA: 0x916078
+  Symbol: WaitOnAddress (0)
+  Symbol: WakeByAddressAll (0)
+  Symbol: WakeByAddressSingle (0)
+}
+Import {
+  Name: imm32.dll
+  ImportLookupTableRVA: 0x915670
+  ImportAddressTableRVA: 0x916098
+  Symbol: ImmAssociateContextEx (1)
+  Symbol: ImmGetCompositionStringW (27)
+  Symbol: ImmGetContext (29)
+  Symbol: ImmReleaseContext (63)
+  Symbol: ImmSetCandidateWindow (66)
+  Symbol: ImmSetCompositionWindow (71)
+}
+Import {
+  Name: advapi32.dll
+  ImportLookupTableRVA: 0x9156A8
+  ImportAddressTableRVA: 0x9160D0
+  Symbol: ImpersonateAnonymousToken (296)
+  Symbol: RevertToSelf (552)
+}
+Import {
+  Name: uxtheme.dll
+  ImportLookupTableRVA: 0x9156C0
+  ImportAddressTableRVA: 0x9160E8
+  Symbol: SetWindowTheme (74)
+}
+Import {
+  Name: opengl32.dll
+  ImportLookupTableRVA: 0x9156D0
+  ImportAddressTableRVA: 0x9160F8
+  Symbol: wglCreateContext (337)
+  Symbol: wglDeleteContext (339)
+  Symbol: wglGetCurrentContext (341)
+  Symbol: wglGetCurrentDC (342)
+  Symbol: wglGetProcAddress (344)
+  Symbol: wglMakeCurrent (345)
+  Symbol: wglShareLists (348)
+}
+Resources [
+  Total Number of Resources: 1
+  Base Table Address: 0x9CDC00
+  
+  Number of String Entries: 0
+  Number of ID Entries: 1
+  Type: MANIFEST (ID 24) [
+    Table Offset: 0x18
+    Number of String Entries: 0
+    Number of ID Entries: 1
+    Name: (ID 1) [
+      Table Offset: 0x30
+      Number of String Entries: 0
+      Number of ID Entries: 1
+      Language: (ID 1033) [
+        Entry Offset: 0x48
+        Time/Date Stamp: 1970-01-01 00:00:00 (0x0)
+        Major Version: 0
+        Minor Version: 0
+        Characteristics: 0
+        Data [
+          DataRVA: 0x9D5060
+          DataSize: 847
+          Codepage: 0
+          Reserved: 0
+          Data (
+            0000: 3C3F786D 6C207665 7273696F 6E3D2231  |<?xml version="1|
+            0010: 2E302220 656E636F 64696E67 3D225554  |.0" encoding="UT|
+            0020: 462D3822 20737461 6E64616C 6F6E653D  |F-8" standalone=|
+            0030: 22796573 223F3E0A 3C617373 656D626C  |"yes"?>.<assembl|
+            0040: 7920786D 6C6E733D 2275726E 3A736368  |y xmlns="urn:sch|
+            0050: 656D6173 2D6D6963 726F736F 66742D63  |emas-microsoft-c|
+            0060: 6F6D3A61 736D2E76 3122206D 616E6966  |om:asm.v1" manif|
+            0070: 65737456 65727369 6F6E3D22 312E3022  |estVersion="1.0"|
+            0080: 3E0A2020 3C747275 7374496E 666F2078  |>.  <trustInfo x|
+            0090: 6D6C6E73 3D227572 6E3A7363 68656D61  |mlns="urn:schema|
+            00A0: 732D6D69 63726F73 6F66742D 636F6D3A  |s-microsoft-com:|
+            00B0: 61736D2E 7633223E 0A202020 203C7365  |asm.v3">.    <se|
+            00C0: 63757269 74793E3C 72657175 65737465  |curity><requeste|
+            00D0: 64507269 76696C65 6765733E 0A202020  |dPrivileges>.   |
+            00E0: 2020203C 72657175 65737465 64457865  |   <requestedExe|
+            00F0: 63757469 6F6E4C65 76656C20 6C657665  |cutionLevel leve|
+            0100: 6C3D2261 73496E76 6F6B6572 22207569  |l="asInvoker" ui|
+            0110: 41636365 73733D22 66616C73 6522202F  |Access="false" /|
+            0120: 3E0A2020 20203C2F 72657175 65737465  |>.    </requeste|
+            0130: 64507269 76696C65 6765733E 3C2F7365  |dPrivileges></se|
+            0140: 63757269 74793E0A 20203C2F 74727573  |curity>.  </trus|
+            0150: 74496E66 6F3E0A20 203C636F 6D706174  |tInfo>.  <compat|
+            0160: 6962696C 69747920 786D6C6E 733D2275  |ibility xmlns="u|
+            0170: 726E3A73 6368656D 61732D6D 6963726F  |rn:schemas-micro|
+            0180: 736F6674 2D636F6D 3A636F6D 70617469  |soft-com:compati|
+            0190: 62696C69 74792E76 31223E0A 20202020  |bility.v1">.    |
+            01A0: 3C617070 6C696361 74696F6E 3E0A2020  |<application>.  |
+            01B0: 20202020 3C212D2D 2057696E 646F7773  |    <!-- Windows|
+            01C0: 20313020 616E6420 57696E64 6F777320  | 10 and Windows |
+            01D0: 31312073 68617265 20746869 7320636F  |11 share this co|
+            01E0: 6D706174 6962696C 69747920 6964656E  |mpatibility iden|
+            01F0: 74696669 65722E20 2D2D3E0A 20202020  |tifier. -->.    |
+            0200: 20203C73 7570706F 72746564 4F532049  |  <supportedOS I|
+            0210: 643D227B 38653066 37613132 2D626662  |d="{8e0f7a12-bfb|
+            0220: 332D3466 65382D62 3961352D 34386664  |3-4fe8-b9a5-48fd|
+            0230: 35306131 35613961 7D22202F 3E0A2020  |50a15a9a}" />.  |
+            0240: 20203C2F 6170706C 69636174 696F6E3E  |  </application>|
+            0250: 0A20203C 2F636F6D 70617469 62696C69  |.  </compatibili|
+            0260: 74793E0A 20203C61 70706C69 63617469  |ty>.  <applicati|
+            0270: 6F6E2078 6D6C6E73 3D227572 6E3A7363  |on xmlns="urn:sc|
+            0280: 68656D61 732D6D69 63726F73 6F66742D  |hemas-microsoft-|
+            0290: 636F6D3A 61736D2E 7633223E 0A202020  |com:asm.v3">.   |
+            02A0: 203C7769 6E646F77 73536574 74696E67  | <windowsSetting|
+            02B0: 733E0A20 20202020 203C6C6F 6E675061  |s>.      <longPa|
+            02C0: 74684177 61726520 786D6C6E 733D2268  |thAware xmlns="h|
+            02D0: 7474703A 2F2F7363 68656D61 732E6D69  |ttp://schemas.mi|
+            02E0: 63726F73 6F66742E 636F6D2F 534D492F  |crosoft.com/SMI/|
+            02F0: 32303136 2F57696E 646F7773 53657474  |2016/WindowsSett|
+            0300: 696E6773 223E7472 75653C2F 6C6F6E67  |ings">true</long|
+            0310: 50617468 41776172 653E0A20 2020203C  |PathAware>.    <|
+            0320: 2F77696E 646F7773 53657474 696E6773  |/windowsSettings|
+            0330: 3E0A2020 3C2F6170 706C6963 6174696F  |>.  </applicatio|
+            0340: 6E3E0A3C 2F617373 656D626C 793E0A    |n>.</assembly>.|
+          )
+        ]
+      ]
+    ]
+  ]
+]
+
+File: target/x86_64-pc-windows-msvc/release/filespring.exe
+Format: COFF-x86-64
+Arch: x86_64
+AddressSize: 64bit
+ImageFileHeader {
+  Machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
+  SectionCount: 9
+  TimeDateStamp: 2026-11-07 17:56:14 (0x6AEF663E)
+  PointerToSymbolTable: 0x0
+  SymbolCount: 0
+  StringTableSize: 0
+  OptionalHeaderSize: 240
+  Characteristics [ (0x22)
+    IMAGE_FILE_EXECUTABLE_IMAGE (0x2)
+    IMAGE_FILE_LARGE_ADDRESS_AWARE (0x20)
+  ]
+}
+ImageOptionalHeader {
+  Magic: 0x20B
+  MajorLinkerVersion: 14
+  MinorLinkerVersion: 0
+  SizeOfCode: 2514432
+  SizeOfInitializedData: 451072
+  SizeOfUninitializedData: 0
+  AddressOfEntryPoint: 0x24E6B0
+  BaseOfCode: 0x1000
+  ImageBase: 0x140000000
+  SectionAlignment: 4096
+  FileAlignment: 512
+  MajorOperatingSystemVersion: 6
+  MinorOperatingSystemVersion: 0
+  MajorImageVersion: 0
+  MinorImageVersion: 0
+  MajorSubsystemVersion: 6
+  MinorSubsystemVersion: 0
+  SizeOfImage: 3002368
+  SizeOfHeaders: 1024
+  CheckSum: 0x0
+  Subsystem: IMAGE_SUBSYSTEM_WINDOWS_CUI (0x3)
+  Characteristics [ (0x8160)
+    IMAGE_DLL_CHARACTERISTICS_DYNAMIC_BASE (0x40)
+    IMAGE_DLL_CHARACTERISTICS_HIGH_ENTROPY_VA (0x20)
+    IMAGE_DLL_CHARACTERISTICS_NX_COMPAT (0x100)
+    IMAGE_DLL_CHARACTERISTICS_TERMINAL_SERVER_AWARE (0x8000)
+  ]
+  SizeOfStackReserve: 1048576
+  SizeOfStackCommit: 4096
+  SizeOfHeapReserve: 1048576
+  SizeOfHeapCommit: 4096
+  NumberOfRvaAndSize: 16
+  DataDirectory {
+    ExportTableRVA: 0x0
+    ExportTableSize: 0x0
+    ImportTableRVA: 0x2A3F38
+    ImportTableSize: 0x64
+    ResourceTableRVA: 0x2D9000
+    ResourceTableSize: 0x3B0
+    ExceptionTableRVA: 0x2C8000
+    ExceptionTableSize: 0xD890
+    CertificateTableRVA: 0x0
+    CertificateTableSize: 0x0
+    BaseRelocationTableRVA: 0x2DA000
+    BaseRelocationTableSize: 0x2004
+    DebugRVA: 0x2A3E10
+    DebugSize: 0x1C
+    ArchitectureRVA: 0x0
+    ArchitectureSize: 0x0
+    GlobalPtrRVA: 0x0
+    GlobalPtrSize: 0x0
+    TLSTableRVA: 0x297CB0
+    TLSTableSize: 0x28
+    LoadConfigTableRVA: 0x291B20
+    LoadConfigTableSize: 0x140
+    BoundImportRVA: 0x0
+    BoundImportSize: 0x0
+    IATRVA: 0x2A4438
+    IATSize: 0x498
+    DelayImportDescriptorRVA: 0x0
+    DelayImportDescriptorSize: 0x0
+    CLRRuntimeHeaderRVA: 0x0
+    CLRRuntimeHeaderSize: 0x0
+    ReservedRVA: 0x0
+    ReservedSize: 0x0
+  }
+}
+DOSHeader {
+  Magic: MZ
+  UsedBytesInTheLastPage: 120
+  FileSizeInPages: 1
+  NumberOfRelocationItems: 0
+  HeaderSizeInParagraphs: 4
+  MinimumExtraParagraphs: 0
+  MaximumExtraParagraphs: 0
+  InitialRelativeSS: 0
+  InitialSP: 0
+  Checksum: 0
+  InitialIP: 0
+  InitialRelativeCS: 0
+  AddressOfRelocationTable: 64
+  OverlayNumber: 0
+  OEMid: 0
+  OEMinfo: 0
+  AddressOfNewExeHeader: 120
+}
+Import {
+  Name: kernel32.dll
+  ImportLookupTableRVA: 0x2A3FA0
+  ImportAddressTableRVA: 0x2A4438
+  Symbol: AcquireSRWLockExclusive (0)
+  Symbol: AddVectoredExceptionHandler (16)
+  Symbol: AreFileApisANSI (0)
+  Symbol: CloseHandle (0)
+  Symbol: CompareStringW (85)
+  Symbol: CreateDirectoryW (113)
+  Symbol: CreateFileMappingW (127)
+  Symbol: CreateFileW (130)
+  Symbol: CreateHardLinkW (134)
+  Symbol: CreateMutexA (142)
+  Symbol: CreateThread (166)
+  Symbol: DeleteCriticalSection (195)
+  Symbol: DeleteFileW (0)
+  Symbol: EncodePointer (225)
+  Symbol: EnterCriticalSection (229)
+  Symbol: ExitProcess (274)
+  Symbol: ExitThread (275)
+  Symbol: FindClose (0)
+  Symbol: FindFirstFileExA (0)
+  Symbol: FindFirstFileExW (0)
+  Symbol: FindNextFileA (0)
+  Symbol: FindNextFileW (0)
+  Symbol: FlushFileBuffers (0)
+  Symbol: FlushViewOfFile (0)
+  Symbol: FormatMessageW (344)
+  Symbol: FreeEnvironmentStringsW (347)
+  Symbol: FreeLibrary (0)
+  Symbol: FreeLibraryAndExitThread (349)
+  Symbol: GetACP (355)
+  Symbol: GetCPInfo (367)
+  Symbol: GetCommandLineA (382)
+  Symbol: GetCommandLineW (383)
+  Symbol: GetConsoleCP (0)
+  Symbol: GetConsoleMode (0)
+  Symbol: GetConsoleOutputCP (0)
+  Symbol: GetConsoleScreenBufferInfo (0)
+  Symbol: GetCurrentDirectoryW (430)
+  Symbol: GetCurrentProcess (438)
+  Symbol: GetCurrentProcessId (439)
+  Symbol: GetCurrentThread (442)
+  Symbol: GetCurrentThreadId (443)
+  Symbol: GetDiskFreeSpaceW (0)
+  Symbol: GetDriveTypeW (0)
+  Symbol: GetEnvironmentStringsW (467)
+  Symbol: GetEnvironmentVariableW (469)
+  Symbol: GetFileAttributesExW (0)
+  Symbol: GetFileAttributesW (0)
+  Symbol: GetFileInformationByHandle (0)
+  Symbol: GetFileInformationByHandleEx (0)
+  Symbol: GetFileSizeEx (0)
+  Symbol: GetFileType (0)
+  Symbol: GetFinalPathNameByHandleW (0)
+  Symbol: GetFullPathNameW (0)
+  Symbol: GetLastError (0)
+  Symbol: GetModuleFileNameA (526)
+  Symbol: GetModuleFileNameW (527)
+  Symbol: GetModuleHandleA (528)
+  Symbol: GetModuleHandleExW (530)
+  Symbol: GetModuleHandleW (531)
+  Symbol: GetOEMCP (561)
+  Symbol: GetOverlappedResult (562)
+  Symbol: GetProcAddress (584)
+  Symbol: GetProcessHeap (0)
+  Symbol: GetStartupInfoW (620)
+  Symbol: GetStdHandle (0)
+  Symbol: GetStringTypeW (626)
+  Symbol: GetSystemInfo (637)
+  Symbol: GetSystemTimeAsFileTime (644)
+  Symbol: GetSystemTimePreciseAsFileTime (645)
+  Symbol: GetTempPathW (0)
+  Symbol: GetTickCount64 (679)
+  Symbol: GetTimeZoneInformation (683)
+  Symbol: GetVolumePathNameW (0)
+  Symbol: HeapAlloc (0)
+  Symbol: HeapCompact (0)
+  Symbol: HeapCreate (0)
+  Symbol: HeapDestroy (0)
+  Symbol: HeapFree (0)
+  Symbol: HeapReAlloc (0)
+  Symbol: HeapSize (0)
+  Symbol: HeapValidate (0)
+  Symbol: InitializeCriticalSection (762)
+  Symbol: InitializeCriticalSectionAndSpinCount (763)
+  Symbol: InitializeSListHead (767)
+  Symbol: InitializeSRWLock (768)
+  Symbol: IsDebuggerPresent (785)
+  Symbol: IsProcessorFeaturePresent (792)
+  Symbol: IsValidCodePage (797)
+  Symbol: LCMapStringW (835)
+  Symbol: LeaveCriticalSection (845)
+  Symbol: LoadLibraryA (848)
+  Symbol: LoadLibraryExW (850)
+  Symbol: LoadLibraryW (851)
+  Symbol: LocalFree (0)
+  Symbol: LockFileEx (871)
+  Symbol: MapViewOfFile (0)
+  Symbol: MultiByteToWideChar (892)
+  Symbol: OutputDebugStringA (918)
+  Symbol: QueryPerformanceCounter (964)
+  Symbol: RaiseException (977)
+  Symbol: ReadFile (991)
+  Symbol: ReleaseMutex (1003)
+  Symbol: ReleaseSRWLockExclusive (1006)
+  Symbol: RtlCaptureContext (1030)
+  Symbol: RtlLookupFunctionEntry (1036)
+  Symbol: RtlPcToFileHeader (1037)
+  Symbol: RtlUnwindEx (1041)
+  Symbol: RtlVirtualUnwind (1042)
+  Symbol: SetConsoleMode (0)
+  Symbol: SetConsoleTextAttribute (0)
+  Symbol: SetEndOfFile (0)
+  Symbol: SetEnvironmentVariableA (1090)
+  Symbol: SetFileInformationByHandle (0)
+  Symbol: SetFilePointerEx (0)
+  Symbol: SetFileTime (0)
+  Symbol: SetLastError (0)
+  Symbol: SetStdHandle (0)
+  Symbol: SetThreadStackGuarantee (1167)
+  Symbol: SetUnhandledExceptionFilter (1179)
+  Symbol: Sleep (1192)
+  Symbol: TerminateProcess (1205)
+  Symbol: TlsAlloc (1209)
+  Symbol: TlsFree (1210)
+  Symbol: TlsGetValue (1211)
+  Symbol: TlsSetValue (1212)
+  Symbol: TryAcquireSRWLockExclusive (1216)
+  Symbol: TryEnterCriticalSection (1218)
+  Symbol: UnhandledExceptionFilter (1223)
+  Symbol: UnlockFileEx (1225)
+  Symbol: UnmapViewOfFile (0)
+  Symbol: WaitForSingleObject (1261)
+  Symbol: WaitForSingleObjectEx (1262)
+  Symbol: WideCharToMultiByte (1287)
+  Symbol: WriteConsoleW (0)
+  Symbol: WriteFile (1305)
+  Symbol: lstrlenW (1340)
+}
+Import {
+  Name: ntdll.dll
+  ImportLookupTableRVA: 0x2A43E8
+  ImportAddressTableRVA: 0x2A4880
+  Symbol: NtReadFile (121)
+  Symbol: NtWriteFile (160)
+  Symbol: RtlNtStatusToDosError (0)
+}
+Import {
+  Name: bcryptprimitives.dll
+  ImportLookupTableRVA: 0x2A4408
+  ImportAddressTableRVA: 0x2A48A0
+  Symbol: ProcessPrng (0)
+}
+Import {
+  Name: api-ms-win-core-synch-l1-2-0.dll
+  ImportLookupTableRVA: 0x2A4418
+  ImportAddressTableRVA: 0x2A48B0
+  Symbol: WaitOnAddress (0)
+  Symbol: WakeByAddressAll (0)
+  Symbol: WakeByAddressSingle (0)
+}
+Resources [
+  Total Number of Resources: 1
+  Base Table Address: 0x2D1E00
+  
+  Number of String Entries: 0
+  Number of ID Entries: 1
+  Type: MANIFEST (ID 24) [
+    Table Offset: 0x18
+    Number of String Entries: 0
+    Number of ID Entries: 1
+    Name: (ID 1) [
+      Table Offset: 0x30
+      Number of String Entries: 0
+      Number of ID Entries: 1
+      Language: (ID 1033) [
+        Entry Offset: 0x48
+        Time/Date Stamp: 1970-01-01 00:00:00 (0x0)
+        Major Version: 0
+        Minor Version: 0
+        Characteristics: 0
+        Data [
+          DataRVA: 0x2D9060
+          DataSize: 847
+          Codepage: 0
+          Reserved: 0
+          Data (
+            0000: 3C3F786D 6C207665 7273696F 6E3D2231  |<?xml version="1|
+            0010: 2E302220 656E636F 64696E67 3D225554  |.0" encoding="UT|
+            0020: 462D3822 20737461 6E64616C 6F6E653D  |F-8" standalone=|
+            0030: 22796573 223F3E0A 3C617373 656D626C  |"yes"?>.<assembl|
+            0040: 7920786D 6C6E733D 2275726E 3A736368  |y xmlns="urn:sch|
+            0050: 656D6173 2D6D6963 726F736F 66742D63  |emas-microsoft-c|
+            0060: 6F6D3A61 736D2E76 3122206D 616E6966  |om:asm.v1" manif|
+            0070: 65737456 65727369 6F6E3D22 312E3022  |estVersion="1.0"|
+            0080: 3E0A2020 3C747275 7374496E 666F2078  |>.  <trustInfo x|
+            0090: 6D6C6E73 3D227572 6E3A7363 68656D61  |mlns="urn:schema|
+            00A0: 732D6D69 63726F73 6F66742D 636F6D3A  |s-microsoft-com:|
+            00B0: 61736D2E 7633223E 0A202020 203C7365  |asm.v3">.    <se|
+            00C0: 63757269 74793E3C 72657175 65737465  |curity><requeste|
+            00D0: 64507269 76696C65 6765733E 0A202020  |dPrivileges>.   |
+            00E0: 2020203C 72657175 65737465 64457865  |   <requestedExe|
+            00F0: 63757469 6F6E4C65 76656C20 6C657665  |cutionLevel leve|
+            0100: 6C3D2261 73496E76 6F6B6572 22207569  |l="asInvoker" ui|
+            0110: 41636365 73733D22 66616C73 6522202F  |Access="false" /|
+            0120: 3E0A2020 20203C2F 72657175 65737465  |>.    </requeste|
+            0130: 64507269 76696C65 6765733E 3C2F7365  |dPrivileges></se|
+            0140: 63757269 74793E0A 20203C2F 74727573  |curity>.  </trus|
+            0150: 74496E66 6F3E0A20 203C636F 6D706174  |tInfo>.  <compat|
+            0160: 6962696C 69747920 786D6C6E 733D2275  |ibility xmlns="u|
+            0170: 726E3A73 6368656D 61732D6D 6963726F  |rn:schemas-micro|
+            0180: 736F6674 2D636F6D 3A636F6D 70617469  |soft-com:compati|
+            0190: 62696C69 74792E76 31223E0A 20202020  |bility.v1">.    |
+            01A0: 3C617070 6C696361 74696F6E 3E0A2020  |<application>.  |
+            01B0: 20202020 3C212D2D 2057696E 646F7773  |    <!-- Windows|
+            01C0: 20313020 616E6420 57696E64 6F777320  | 10 and Windows |
+            01D0: 31312073 68617265 20746869 7320636F  |11 share this co|
+            01E0: 6D706174 6962696C 69747920 6964656E  |mpatibility iden|
+            01F0: 74696669 65722E20 2D2D3E0A 20202020  |tifier. -->.    |
+            0200: 20203C73 7570706F 72746564 4F532049  |  <supportedOS I|
+            0210: 643D227B 38653066 37613132 2D626662  |d="{8e0f7a12-bfb|
+            0220: 332D3466 65382D62 3961352D 34386664  |3-4fe8-b9a5-48fd|
+            0230: 35306131 35613961 7D22202F 3E0A2020  |50a15a9a}" />.  |
+            0240: 20203C2F 6170706C 69636174 696F6E3E  |  </application>|
+            0250: 0A20203C 2F636F6D 70617469 62696C69  |.  </compatibili|
+            0260: 74793E0A 20203C61 70706C69 63617469  |ty>.  <applicati|
+            0270: 6F6E2078 6D6C6E73 3D227572 6E3A7363  |on xmlns="urn:sc|
+            0280: 68656D61 732D6D69 63726F73 6F66742D  |hemas-microsoft-|
+            0290: 636F6D3A 61736D2E 7633223E 0A202020  |com:asm.v3">.   |
+            02A0: 203C7769 6E646F77 73536574 74696E67  | <windowsSetting|
+            02B0: 733E0A20 20202020 203C6C6F 6E675061  |s>.      <longPa|
+            02C0: 74684177 61726520 786D6C6E 733D2268  |thAware xmlns="h|
+            02D0: 7474703A 2F2F7363 68656D61 732E6D69  |ttp://schemas.mi|
+            02E0: 63726F73 6F66742E 636F6D2F 534D492F  |crosoft.com/SMI/|
+            02F0: 32303136 2F57696E 646F7773 53657474  |2016/WindowsSett|
+            0300: 696E6773 223E7472 75653C2F 6C6F6E67  |ings">true</long|
+            0310: 50617468 41776172 653E0A20 2020203C  |PathAware>.    <|
+            0320: 2F77696E 646F7773 53657474 696E6773  |/windowsSettings|
+            0330: 3E0A2020 3C2F6170 706C6963 6174696F  |>.  </applicatio|
+            0340: 6E3E0A3C 2F617373 656D626C 793E0A    |n>.</assembly>.|
+          )
+        ]
+      ]
+    ]
+  ]
+]

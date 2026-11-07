@@ -300,6 +300,156 @@ fn exclusive_windows_lock_is_reported_without_modifications() {
     assert!(!f.root.join("out/a").exists());
 }
 
+#[cfg(windows)]
+#[test]
+fn windows_lock_after_preview_stops_before_destination_changes() {
+    use std::os::windows::fs::OpenOptionsExt;
+    let f = Fixture::new();
+    f.file("a", b"locked after preview");
+    let mut e = f.engine();
+    let plan = e.prepare(vec![f.request(Action::Move, "a")]).unwrap();
+    let locked = fs::OpenOptions::new()
+        .read(true)
+        .share_mode(0)
+        .open(f.root.join("in/a"))
+        .unwrap();
+    assert!(e.execute(&plan.id).is_err());
+    assert!(!f.root.join("out/a").exists());
+    drop(locked);
+    assert_eq!(
+        fs::read(f.root.join("in/a")).unwrap(),
+        b"locked after preview"
+    );
+}
+
+#[cfg(windows)]
+#[test]
+fn windows_readonly_source_is_rejected_before_staging() {
+    let f = Fixture::new();
+    f.file("a", b"read only");
+    let path = f.root.join("in/a");
+    let original = fs::metadata(&path).unwrap().permissions();
+    let mut readonly = original.clone();
+    readonly.set_readonly(true);
+    fs::set_permissions(&path, readonly).unwrap();
+    let result = f.engine().prepare(vec![f.request(Action::Copy, "a")]);
+    fs::set_permissions(&path, original).unwrap();
+    assert!(result.is_err());
+    assert_eq!(fs::read_dir(f.root.join("out")).unwrap().count(), 0);
+}
+
+#[cfg(windows)]
+#[test]
+fn windows_device_aliases_and_ads_never_reach_staging() {
+    let f = Fixture::new();
+    f.file("a", b"safe");
+    let mut e = f.engine();
+    for name in [
+        "NUL",
+        "nul.txt",
+        "a:stream",
+        "CON",
+        "trailing.",
+        "trailing ",
+    ] {
+        let mut request = f.request(Action::Copy, "a");
+        request.destination = f.root.join("out").join(name);
+        assert!(e.prepare(vec![request]).is_err(), "{name}");
+    }
+    assert_eq!(fs::read_dir(f.root.join("out")).unwrap().count(), 0);
+    assert_eq!(fs::read(f.root.join("in/a")).unwrap(), b"safe");
+}
+
+#[cfg(windows)]
+#[test]
+fn windows_verbatim_long_path_copy_and_undo() {
+    let f = Fixture::new();
+    let mut source = f.root.join("in");
+    let mut destination = f.root.join("out");
+    for _ in 0..5 {
+        source.push("long-directory-component-012345678901234567890123456789");
+        destination.push("long-directory-component-012345678901234567890123456789");
+    }
+    fs::create_dir_all(&source).unwrap();
+    fs::create_dir_all(&destination).unwrap();
+    source.push("中文.txt");
+    destination.push("中文.txt");
+    assert!(source.as_os_str().len() > 260);
+    fs::write(&source, b"long path").unwrap();
+    let mut e = f.engine();
+    let plan = e
+        .prepare(vec![Request {
+            action: Action::Copy,
+            source: source.clone(),
+            destination: destination.clone(),
+        }])
+        .unwrap();
+    assert_eq!(e.execute(&plan.id).unwrap().state, PlanState::Completed);
+    assert_eq!(fs::read(&destination).unwrap(), b"long path");
+    e.rollback(&plan.id).unwrap();
+    assert!(source.exists());
+    assert!(!destination.exists());
+}
+
+#[cfg(windows)]
+#[test]
+fn windows_junction_cannot_redirect_a_prepared_move() {
+    let f = Fixture::new();
+    f.file("a", b"safe");
+    let mut e = f.engine();
+    let plan = e.prepare(vec![f.request(Action::Move, "a")]).unwrap();
+    fs::rename(f.root.join("out"), f.root.join("old-out")).unwrap();
+    let outside = tempfile::tempdir().unwrap();
+    let junction = f.root.join("out");
+    let status = Command::new("powershell.exe")
+        .args(["-NoProfile", "-NonInteractive", "-Command", "New-Item -ItemType Junction -Path $env:FILESPRING_TEST_LINK -Target $env:FILESPRING_TEST_TARGET -ErrorAction Stop | Out-Null"])
+        .env("FILESPRING_TEST_LINK", junction.to_string_lossy().trim_start_matches(r"\\?\"))
+        .env("FILESPRING_TEST_TARGET", outside.path())
+        .status().unwrap();
+    assert!(status.success());
+    let result = e.execute(&plan.id);
+    // Remove the junction itself before fixture cleanup; never recurse into its target.
+    fs::remove_dir(&junction).unwrap();
+    assert!(result.is_err());
+    assert!(f.root.join("in/a").exists());
+    assert_eq!(fs::read_dir(outside.path()).unwrap().count(), 0);
+}
+
+#[test]
+fn portable_self_test_uses_a_new_fixture_and_refuses_existing_data() {
+    let parent = tempfile::tempdir().unwrap();
+    let fixture = parent.path().join("generated fixture");
+    let unused_state = parent.path().join("must-not-create-state");
+    let output = Command::new(env!("CARGO_BIN_EXE_filespring"))
+        .arg("--state")
+        .arg(&unused_state)
+        .arg("self-test")
+        .arg("--fixture")
+        .arg(&fixture)
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let report: serde_json::Value = serde_json::from_slice(&output.stdout).unwrap();
+    assert_eq!(report["result"], "passed");
+    assert_eq!(report["checks"].as_array().unwrap().len(), 9);
+    assert!(!unused_state.exists());
+    let before = fs::read(fixture.join("verification.json")).unwrap();
+    fs::write(fixture.join("keep"), b"must remain").unwrap();
+    let second = Command::new(env!("CARGO_BIN_EXE_filespring"))
+        .arg("self-test")
+        .arg("--fixture")
+        .arg(&fixture)
+        .output()
+        .unwrap();
+    assert!(!second.status.success());
+    assert_eq!(fs::read(fixture.join("keep")).unwrap(), b"must remain");
+    assert_eq!(fs::read(fixture.join("verification.json")).unwrap(), before);
+}
+
 #[test]
 fn zero_byte_long_unicode_and_special_names() {
     let f = Fixture::new();

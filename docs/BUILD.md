@@ -1,6 +1,6 @@
 # 构建与开发
 
-Rust 1.95+，Cargo，原生 C 编译器。SQLite 使用 bundled feature，不依赖用户安装的 SQLite 运行时。GUI 为可选 feature，CLI 可独立用于 WSL。
+Rust 1.95+，Cargo，原生 C 编译器；打包工具需要 Python 3.11+。SQLite 使用 bundled feature，不依赖用户安装的 SQLite 运行时。GUI 为可选 feature。当前优先交付 macOS 与 Windows 10/11 x64，Linux/WSL 暂缓。
 
 ```sh
 export CARGO_HOME="$PWD/.cache/cargo"
@@ -15,8 +15,8 @@ cargo test --locked --features desktop
 ## 平台
 
 - macOS：Xcode Command Line Tools。`cargo build --release --features desktop` 后运行 `python3 tools/package_macos.py`，在 `artifacts/FileSpring.app` 得到未签名开发包。`--debug` 可打包 debug 构建。尚未签名、公证、生成 DMG 或验证最低系统版本；Info.plist 的 11.0 仅为目标配置。
-- Windows：MSVC Rust 工具链与 Visual Studio C++ Build Tools。执行 `cargo build --release --features desktop --locked`，二进制位于 `target/release/filespring-desktop.exe`。发行安装包、代码签名未实现。
-- Linux：C 编译器、pkg-config、X11/Wayland/OpenGL 开发库，以及 xkbcommon/fontconfig。Ubuntu CI 安装示例见 `.github/workflows/ci.yml`。桌面使用 Glow/OpenGL 渲染，需要兼容的驱动；无 GPU/软件渲染目标尚未完成验证。
+- Windows：MSVC Rust 工具链、Visual Studio C++ Build Tools/Windows SDK 和 Python 3.11+。运行 `python tools/build_windows.py`，生成 `artifacts/FileSpring-0.1.0-windows-x64-portable.zip`。EXE 静态链接 CRT、嵌入 Win10/11 清单；GUI 隐藏控制台并显示启动错误。见 [Windows 专项说明](WINDOWS.md)。未签名，不含安装器。
+- Linux：暂缓开发、打包和 CI，不作为当前交付目标。现有跨平台代码暂保留，后续恢复时再验证依赖与兼容性。
 
 ## 隔离演示
 

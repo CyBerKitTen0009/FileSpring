@@ -1,68 +1,74 @@
 Platform: macOS-26.6.2-arm64-arm-64bit
 Command: cargo test --offline --locked --features desktop -- --nocapture
 
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
    Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.53s
-     Running unittests src/lib.rs (target/debug/deps/filespring-140c7064c762b942)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.93s
+     Running unittests src/lib.rs (target/debug/deps/filespring-a8309624798abbf3)
 
-running 8 tests
+running 9 tests
 test engine::recovery_tests::preserve_unknown_staging_artifact ... ok
-test engine::recovery_tests::published_content_change_preserves_original_source ... ok
+test filesystem::windows_name_tests::windows_aliases_and_streams_are_rejected_without_io ... ok
 test engine::recovery_tests::staged_destination_conflict_never_clobbers_and_can_resume_after_resolution ... ok
-test engine::recovery_tests::recover_partial_stage_without_touching_source ... ok
-test engine::recovery_tests::recover_undo_removal_before_journal_update ... ok
+test engine::recovery_tests::published_content_change_preserves_original_source ... ok
 test engine::recovery_tests::recover_undo_publication_before_journal_update ... ok
-test engine::recovery_tests::recover_source_unlink_before_completed_journal ... ok
+test engine::recovery_tests::recover_undo_removal_before_journal_update ... ok
+test engine::recovery_tests::recover_partial_stage_without_touching_source ... ok
 test engine::recovery_tests::recover_publish_before_journal_update ... ok
+test engine::recovery_tests::recover_source_unlink_before_completed_journal ... ok
 
-test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
 
-     Running unittests src/main.rs (target/debug/deps/filespring-8c5f20d15f4d0bbb)
+     Running unittests src/main.rs (target/debug/deps/filespring-7b71a812246ea3ef)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running unittests src/bin/desktop.rs (target/debug/deps/filespring_desktop-79458edb847177ae)
+     Running unittests src/bin/desktop.rs (target/debug/deps/filespring_desktop-595f915b92ee615d)
 
 running 5 tests
 test app::tests::multiselection_and_filtering_keep_original_paths ... ok
 test app::tests::native_clipboard_events_handle_files_and_reject_stale_external_text ... ok
-test app::tests::texture_custom_drawing_and_high_dpi_are_supported ... ok
 test app::tests::text_preview_is_bounded_and_respects_scope ... ok
-virtual_rows total=100000 built_max=23 frames=20 elapsed_ms=24.684
+test app::tests::texture_custom_drawing_and_high_dpi_are_supported ... ok
+virtual_rows total=100000 built_max=23 frames=20 elapsed_ms=30.618
 test app::tests::virtual_list_only_builds_visible_rows_at_one_hundred_thousand ... ok
 
-test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
-     Running tests/operations.rs (target/debug/deps/operations-600017961c751eb4)
+     Running tests/operations.rs (target/debug/deps/operations-f501e17390d1f78a)
 
-running 21 tests
+running 22 tests
 test crash_child ... ok
 test inaccessible_paths_are_errors_instead_of_missing ... ok
-test journal_is_single_writer ... ok
 test directories_are_not_misrepresented_as_supported_operations ... ok
-test preview_does_not_modify_files ... ok
-test existing_destination_is_a_blocking_conflict ... ok
-test duplicate_destinations_and_chained_renames_are_blocked ... ok
+test journal_is_single_writer ... ok
 test destination_created_after_preview_is_never_overwritten ... ok
+test duplicate_destinations_and_chained_renames_are_blocked ... ok
+test preview_does_not_modify_files ... ok
 
 running 1 test
-test scope_prevents_escape_and_journal_access ... ok
-test symlink_and_broken_link_are_visible_but_never_followed ... ok
+test existing_destination_is_a_blocking_conflict ... ok
 test replacing_parent_with_link_after_preview_is_rejected ... ok
-test source_changed_after_preview_stops_entire_batch ... ok
+test scope_prevents_escape_and_journal_access ... ok
 test copy_verify_reopen_and_undo ... ok
+test source_changed_after_preview_stops_entire_batch ... ok
+test symlink_and_broken_link_are_visible_but_never_followed ... ok
 test move_and_undo_preserve_bytes_and_mtime ... ok
 test unreadable_source_is_rejected_during_preview ... ok
-test undo_refuses_modified_destination ... ok
 test undo_move_refuses_recreated_original_name ... ok
+test undo_refuses_modified_destination ... ok
 test undo_refuses_same_content_different_identity ... ok
 test zero_byte_long_unicode_and_special_names ... ok
 test process_crash_preserves_partial_history_and_can_resume ... ok
 test scan_streams_batches_and_can_cancel ... ok
+test portable_self_test_uses_a_new_fixture_and_refuses_existing_data ... ok
 
-test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.69s
 
    Doc-tests filespring
 

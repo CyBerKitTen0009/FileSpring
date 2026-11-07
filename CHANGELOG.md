@@ -2,6 +2,9 @@
 
 ## 0.1.0 — unreleased (2026-11-06)
 
+- 2026-11-08：新增 Windows 10/11 x64 原生 EXE 交叉构建与便携 ZIP、静态 CRT、应用清单、无控制台 GUI 和启动错误对话框；Linux 暂缓，CI 改为 macOS/Windows 构建与成品上传。
+- 增加仅修改新生成样本的 `self-test` 命令与 `Verify-Windows.cmd`，保留验证报告；补充 Windows 设备名/ADS 校验、只读源拒绝、独占锁、Junction 和长路径测试。Windows 专项运行仍待实机验证。
+
 - 初始化 Rust 原生项目与可独立运行的 CLI。
 - 普通文件的操作预演、校验复制、移动、冲突拒绝、显式继续与撤销。
 - SQLite WAL/FULL 计划与逐阶段事件日志，单引擎文件锁。

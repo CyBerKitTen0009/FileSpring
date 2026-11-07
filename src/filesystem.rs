@@ -44,6 +44,27 @@ impl Scope {
             "Parent traversal is not accepted: {}",
             path.display()
         );
+        #[cfg(windows)]
+        for component in absolute.components() {
+            match component {
+                Component::Normal(name) => validate_windows_name(name)?,
+                Component::Prefix(prefix) => {
+                    use std::path::Prefix;
+                    ensure!(
+                        absolute.has_root()
+                            && matches!(
+                                prefix.kind(),
+                                Prefix::Disk(_)
+                                    | Prefix::VerbatimDisk(_)
+                                    | Prefix::UNC(_, _)
+                                    | Prefix::VerbatimUNC(_, _)
+                            ),
+                        "Drive-relative paths and device namespaces are not supported"
+                    );
+                }
+                _ => {}
+            }
+        }
         // Check the spelling before canonicalization, so a symlink cannot disappear during resolution.
         let mut prefix = PathBuf::new();
         for component in absolute.components() {
@@ -183,7 +204,40 @@ pub fn exists(path: &Path) -> Result<bool> {
 pub fn sync_parent(path: &Path) -> Result<()> {
     #[cfg(unix)]
     File::open(path.parent().context("Missing parent")?)?.sync_all()?;
+    #[cfg(not(unix))]
+    let _ = path;
     // Windows std cannot open a directory for fsync. File data is still sync_all'ed.
+    Ok(())
+}
+
+// Check before Win32 resolves aliases or interprets a colon as an NTFS stream.
+#[cfg(any(windows, test))]
+fn validate_windows_name(name: &std::ffi::OsStr) -> Result<()> {
+    let name = name.to_string_lossy();
+    ensure!(
+        !name.is_empty()
+            && !name.ends_with([' ', '.'])
+            && !name.chars().any(|c| c < ' ' || "<>:\"/\\|?*".contains(c)),
+        "Unsupported Windows filename: {name}"
+    );
+    let stem = name.split('.').next().unwrap().trim_end().to_uppercase();
+    let numbered_device = stem
+        .strip_prefix("COM")
+        .or_else(|| stem.strip_prefix("LPT"))
+        .is_some_and(|suffix| {
+            matches!(
+                suffix,
+                "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "¹" | "²" | "³"
+            )
+        });
+    ensure!(
+        !numbered_device
+            && !matches!(
+                stem.as_str(),
+                "CON" | "PRN" | "AUX" | "NUL" | "CONIN$" | "CONOUT$"
+            ),
+        "Windows device names are not file operation targets: {name}"
+    );
     Ok(())
 }
 
@@ -222,4 +276,32 @@ pub fn remove_owned(path: &Path, expected: &Snapshot) -> Result<()> {
     verify(path, expected)?;
     fs::remove_file(path)?;
     sync_parent(path)
+}
+
+#[cfg(test)]
+mod windows_name_tests {
+    use super::validate_windows_name;
+    use std::ffi::OsStr;
+
+    #[test]
+    fn windows_aliases_and_streams_are_rejected_without_io() {
+        for name in [
+            "NUL",
+            "nul.txt",
+            "CON .txt",
+            "com1",
+            "LPT².log",
+            "CONOUT$",
+            "a:b",
+            "a ",
+            "a.",
+            "a?b",
+            "bad\0name",
+        ] {
+            assert!(validate_windows_name(OsStr::new(name)).is_err(), "{name:?}");
+        }
+        for name in ["中文 空格 & $ `.txt", "COM10.txt", "normal.txt", ".hidden"] {
+            assert!(validate_windows_name(OsStr::new(name)).is_ok(), "{name:?}");
+        }
+    }
 }

@@ -4,9 +4,11 @@
 
 **当前是 Phase 1 开发原型，不是完整产品或正式发行版。** 已有真实文件浏览、复制、移动、预演、持久化日志、显式恢复与撤销。每个修改都会经过同一个操作引擎。目前仅支持普通文件，不支持目录递归操作、覆盖、删除、同步或备份。
 
+当前交付目标为 **macOS + Windows 10/11 x64**，Linux 暂缓。Windows 提供原生 EXE 便携 ZIP、演示目录和无需额外运行时的 `Verify-Windows.cmd`，见 [Windows 使用与验证](docs/WINDOWS.md)。Windows 已完成交叉构建和二进制检查，实机运行尚待验证。
+
 ## 本地运行
 
-需要 Rust 1.95+ 和平台原生编译工具。Linux 桌面还需要窗口系统、OpenGL 和相关开发库，参见 [构建指南](docs/BUILD.md)。不需要全局安装任何 Cargo 工具。
+开发需要 Rust 1.95+ 和平台原生编译工具，打包脚本需要 Python 3.11+；便携包使用者无需这些开发工具，参见 [构建指南](docs/BUILD.md)。不需要全局安装任何 Cargo 工具。
 
 ```sh
 export CARGO_HOME="$PWD/.cache/cargo"
@@ -31,6 +33,8 @@ cargo run -- undo PLAN_ID --confirm
 ```
 
 `plan` 只读取文件并保存预演，不改变目标文件。`apply`、`resume` 和 `undo` 必须带 `--confirm`。CLI 默认只授权当前工作目录；跨目录传输需要重复指定 `--root`。操作只能在原授权范围内继续。
+
+`filespring self-test` 只在新建的临时样本目录执行诊断并保存 `verification.json`，不会使用 `--root`/`--state`。可用 `--fixture NEW_DIRECTORY` 指定一个尚不存在的目录；目录已存在时立即拒绝，诊断后保留样本。
 
 GUI 原型提供双栏、路径输入、目录内名称筛选、Ctrl/Cmd 多选、Shift 区间选择、方向键、Enter 打开目录/文本预览、F5 刷新和应用内 Ctrl/Cmd+C/X/V。复制、剪切会将路径文本写入系统剪贴板；在应用内粘贴时，仅当文本仍匹配才使用原始文件路径生成预演，仍需确认执行。系统文件剪贴板协议尚未实现，不能与 Finder/资源管理器交换文件。拖放接口已接入，原生拖放交互尚待人工验证。
 

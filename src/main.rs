@@ -1,3 +1,5 @@
+mod self_test;
+
 use anyhow::{Result, ensure};
 use clap::{Parser, Subcommand, ValueEnum};
 use filespring::{Action, Engine, Request, browser};
@@ -24,6 +26,12 @@ enum Kind {
 }
 #[derive(Subcommand)]
 enum Command {
+    /// Check generated temporary files only; never uses --root or --state.
+    SelfTest {
+        /// Directory for a new isolated fixture; must not already exist.
+        #[arg(long)]
+        fixture: Option<PathBuf>,
+    },
     /// List one directory; never recurse or follow links.
     List {
         path: PathBuf,
@@ -64,6 +72,9 @@ enum Command {
 }
 fn main() -> Result<()> {
     let args = Args::parse();
+    if let Command::SelfTest { fixture } = args.command {
+        return self_test::run(fixture);
+    }
     let roots = if args.root.is_empty() {
         vec![std::env::current_dir()?]
     } else {
@@ -71,6 +82,7 @@ fn main() -> Result<()> {
     };
     let mut engine = Engine::open(&args.state, &roots)?;
     match args.command {
+        Command::SelfTest { .. } => unreachable!(),
         Command::List { path } => {
             browser::scan(
                 engine.scope(),

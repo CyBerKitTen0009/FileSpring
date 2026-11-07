@@ -75,6 +75,11 @@ impl Engine {
                 "Non-Unicode paths can be browsed but are not supported by journal v1"
             );
             let expected = filesystem::snapshot(&request.source)?;
+            #[cfg(windows)]
+            ensure!(
+                !fs::metadata(&request.source)?.permissions().readonly(),
+                "Read-only Windows sources are not supported by reversible operations"
+            );
             if request.source == request.destination {
                 plan.conflicts.push(format!(
                     "Source equals destination: {}",

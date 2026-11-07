@@ -1,14 +1,15 @@
 {
   "result": "passed",
+  "platform": "darwin",
   "fixture": "generated temporary files only",
   "checks": [
     {
       "command": [
         "plan",
         "copy",
-        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/in/中文测试 & sample.txt",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-8nohtogz/in/中文测试 & sample.txt",
         "--to",
-        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/out"
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-8nohtogz/out"
       ],
       "exit_code": 0,
       "stderr": ""
@@ -16,7 +17,7 @@
     {
       "command": [
         "apply",
-        "10516aa1-8f90-4f54-9af7-9baf39089ca5"
+        "457aa06b-8db2-4fa2-ad4f-8b5370a078e8"
       ],
       "exit_code": 1,
       "stderr": "Error: Review with `show`, then pass --confirm to change files\n"
@@ -24,7 +25,7 @@
     {
       "command": [
         "apply",
-        "10516aa1-8f90-4f54-9af7-9baf39089ca5",
+        "457aa06b-8db2-4fa2-ad4f-8b5370a078e8",
         "--confirm"
       ],
       "exit_code": 0,
@@ -33,7 +34,7 @@
     {
       "command": [
         "show",
-        "10516aa1-8f90-4f54-9af7-9baf39089ca5"
+        "457aa06b-8db2-4fa2-ad4f-8b5370a078e8"
       ],
       "exit_code": 0,
       "stderr": ""
@@ -41,7 +42,7 @@
     {
       "command": [
         "undo",
-        "10516aa1-8f90-4f54-9af7-9baf39089ca5",
+        "457aa06b-8db2-4fa2-ad4f-8b5370a078e8",
         "--confirm"
       ],
       "exit_code": 0,
@@ -51,9 +52,9 @@
       "command": [
         "plan",
         "move",
-        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/in/中文测试 & sample.txt",
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-8nohtogz/in/中文测试 & sample.txt",
         "--to",
-        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-mifnodfh/out"
+        "/private/var/folders/4w/5n4ddxh962zfs0jw9wqtplbc0000gn/T/filespring-cli-8nohtogz/out"
       ],
       "exit_code": 0,
       "stderr": ""
@@ -61,7 +62,7 @@
     {
       "command": [
         "apply",
-        "c562f2d9-278d-444e-89bd-7a571d6d64e1"
+        "509e37d6-528e-49fa-aa5e-5e08db8a453b"
       ],
       "exit_code": 1,
       "stderr": "Error: Review with `show`, then pass --confirm to change files\n"
@@ -69,7 +70,7 @@
     {
       "command": [
         "apply",
-        "c562f2d9-278d-444e-89bd-7a571d6d64e1",
+        "509e37d6-528e-49fa-aa5e-5e08db8a453b",
         "--confirm"
       ],
       "exit_code": 0,
@@ -78,7 +79,7 @@
     {
       "command": [
         "show",
-        "c562f2d9-278d-444e-89bd-7a571d6d64e1"
+        "509e37d6-528e-49fa-aa5e-5e08db8a453b"
       ],
       "exit_code": 0,
       "stderr": ""
@@ -86,7 +87,7 @@
     {
       "command": [
         "undo",
-        "c562f2d9-278d-444e-89bd-7a571d6d64e1",
+        "509e37d6-528e-49fa-aa5e-5e08db8a453b",
         "--confirm"
       ],
       "exit_code": 0,

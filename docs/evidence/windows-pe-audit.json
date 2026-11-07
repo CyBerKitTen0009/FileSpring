@@ -1,0 +1,44 @@
+{
+  "FileSpring.exe": {
+    "machine": "x86_64",
+    "subsystem": 2,
+    "imports": [
+      "advapi32.dll",
+      "api-ms-win-core-synch-l1-2-0.dll",
+      "api-ms-win-core-winrt-error-l1-1-0.dll",
+      "bcryptprimitives.dll",
+      "combase.dll",
+      "dwmapi.dll",
+      "dwrite.dll",
+      "gdi32.dll",
+      "imm32.dll",
+      "kernel32.dll",
+      "ntdll.dll",
+      "ole32.dll",
+      "oleaut32.dll",
+      "opengl32.dll",
+      "shell32.dll",
+      "uiautomationcore.dll",
+      "user32.dll",
+      "uxtheme.dll"
+    ],
+    "windows_10_11_manifest": true,
+    "long_path_aware": true,
+    "execution_level": "asInvoker",
+    "runtime_tested": false
+  },
+  "FileSpring-cli.exe": {
+    "machine": "x86_64",
+    "subsystem": 3,
+    "imports": [
+      "api-ms-win-core-synch-l1-2-0.dll",
+      "bcryptprimitives.dll",
+      "kernel32.dll",
+      "ntdll.dll"
+    ],
+    "windows_10_11_manifest": true,
+    "long_path_aware": true,
+    "execution_level": "asInvoker",
+    "runtime_tested": false
+  }
+}

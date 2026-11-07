@@ -1,0 +1,2 @@
+# Preserve compiler/LLVM output verbatim, including whitespace-only diagnostic lines.
+docs/evidence/*.log -whitespace
