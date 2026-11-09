@@ -6,7 +6,7 @@ AddressSize: 64bit
 ImageFileHeader {
   Machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
   SectionCount: 9
-  TimeDateStamp: 2026-11-07 17:56:23 (0x6AEF6647)
+  TimeDateStamp: 2026-11-09 01:23:17 (0x6AF12085)
   PointerToSymbolTable: 0x0
   SymbolCount: 0
   StringTableSize: 0
@@ -20,10 +20,10 @@ ImageOptionalHeader {
   Magic: 0x20B
   MajorLinkerVersion: 14
   MinorLinkerVersion: 0
-  SizeOfCode: 7852544
-  SizeOfInitializedData: 2452992
+  SizeOfCode: 7916544
+  SizeOfInitializedData: 2465280
   SizeOfUninitializedData: 0
-  AddressOfEntryPoint: 0x731F40
+  AddressOfEntryPoint: 0x7416C0
   BaseOfCode: 0x1000
   ImageBase: 0x140000000
   SectionAlignment: 4096
@@ -34,7 +34,7 @@ ImageOptionalHeader {
   MinorImageVersion: 0
   MajorSubsystemVersion: 6
   MinorSubsystemVersion: 0
-  SizeOfImage: 10342400
+  SizeOfImage: 10420224
   SizeOfHeaders: 1024
   CheckSum: 0x0
   Subsystem: IMAGE_SUBSYSTEM_WINDOWS_GUI (0x2)
@@ -52,29 +52,29 @@ ImageOptionalHeader {
   DataDirectory {
     ExportTableRVA: 0x0
     ExportTableSize: 0x0
-    ImportTableRVA: 0x914B68
+    ImportTableRVA: 0x9242A8
     ImportTableSize: 0x17C
-    ResourceTableRVA: 0x9D5000
+    ResourceTableRVA: 0x9E8000
     ResourceTableSize: 0x3B0
-    ExceptionTableRVA: 0x9A7000
-    ExceptionTableSize: 0x2AC18
+    ExceptionTableRVA: 0x9B9000
+    ExceptionTableSize: 0x2B29C
     CertificateTableRVA: 0x0
     CertificateTableSize: 0x0
-    BaseRelocationTableRVA: 0x9D6000
-    BaseRelocationTableSize: 0x63D0
-    DebugRVA: 0x914A30
+    BaseRelocationTableRVA: 0x9E9000
+    BaseRelocationTableSize: 0x641C
+    DebugRVA: 0x924170
     DebugSize: 0x1C
     ArchitectureRVA: 0x0
     ArchitectureSize: 0x0
     GlobalPtrRVA: 0x0
     GlobalPtrSize: 0x0
-    TLSTableRVA: 0x9084A0
+    TLSTableRVA: 0x917BE0
     TLSTableSize: 0x28
-    LoadConfigTableRVA: 0x8FD490
+    LoadConfigTableRVA: 0x90CBD0
     LoadConfigTableSize: 0x140
     BoundImportRVA: 0x0
     BoundImportSize: 0x0
-    IATRVA: 0x915710
+    IATRVA: 0x924E50
     IATSize: 0xA28
     DelayImportDescriptorRVA: 0x0
     DelayImportDescriptorSize: 0x0
@@ -105,8 +105,8 @@ DOSHeader {
 }
 Import {
   Name: kernel32.dll
-  ImportLookupTableRVA: 0x914CE8
-  ImportAddressTableRVA: 0x915710
+  ImportLookupTableRVA: 0x924428
+  ImportAddressTableRVA: 0x924E50
   Symbol: AcquireSRWLockExclusive (0)
   Symbol: AddVectoredExceptionHandler (16)
   Symbol: AreFileApisANSI (0)
@@ -261,8 +261,8 @@ Import {
 }
 Import {
   Name: user32.dll
-  ImportLookupTableRVA: 0x9151A8
-  ImportAddressTableRVA: 0x915BD0
+  ImportLookupTableRVA: 0x9248E8
+  ImportAddressTableRVA: 0x925310
   Symbol: AdjustWindowRectEx (0)
   Symbol: CallWindowProcW (0)
   Symbol: ChangeDisplaySettingsExW (0)
@@ -359,15 +359,15 @@ Import {
 }
 Import {
   Name: combase.dll
-  ImportLookupTableRVA: 0x915498
-  ImportAddressTableRVA: 0x915EC0
+  ImportLookupTableRVA: 0x924BD8
+  ImportAddressTableRVA: 0x925600
   Symbol: CoCreateFreeThreadedMarshaler (0)
   Symbol: CoTaskMemFree (0)
 }
 Import {
   Name: ole32.dll
-  ImportLookupTableRVA: 0x9154B0
-  ImportAddressTableRVA: 0x915ED8
+  ImportLookupTableRVA: 0x924BF0
+  ImportAddressTableRVA: 0x925618
   Symbol: CoCreateInstance (0)
   Symbol: CoInitializeEx (0)
   Symbol: CoUninitialize (0)
@@ -377,8 +377,8 @@ Import {
 }
 Import {
   Name: gdi32.dll
-  ImportLookupTableRVA: 0x9154E8
-  ImportAddressTableRVA: 0x915F10
+  ImportLookupTableRVA: 0x924C28
+  ImportAddressTableRVA: 0x925650
   Symbol: ChoosePixelFormat (22)
   Symbol: CreateBitmap (0)
   Symbol: CreateCompatibleBitmap (0)
@@ -392,14 +392,14 @@ Import {
 }
 Import {
   Name: dwrite.dll
-  ImportLookupTableRVA: 0x915540
-  ImportAddressTableRVA: 0x915F68
+  ImportLookupTableRVA: 0x924C80
+  ImportAddressTableRVA: 0x9256A8
   Symbol: DWriteCreateFactory (0)
 }
 Import {
   Name: oleaut32.dll
-  ImportLookupTableRVA: 0x915550
-  ImportAddressTableRVA: 0x915F78
+  ImportLookupTableRVA: 0x924C90
+  ImportAddressTableRVA: 0x9256B8
   Symbol: GetErrorInfo (0)
   Symbol: SafeArrayCreateVector (0)
   Symbol: SafeArrayPutElement (0)
@@ -411,16 +411,16 @@ Import {
 }
 Import {
   Name: ntdll.dll
-  ImportLookupTableRVA: 0x915598
-  ImportAddressTableRVA: 0x915FC0
+  ImportLookupTableRVA: 0x924CD8
+  ImportAddressTableRVA: 0x925700
   Symbol: NtReadFile (121)
   Symbol: NtWriteFile (160)
   Symbol: RtlNtStatusToDosError (0)
 }
 Import {
   Name: uiautomationcore.dll
-  ImportLookupTableRVA: 0x9155B8
-  ImportAddressTableRVA: 0x915FE0
+  ImportLookupTableRVA: 0x924CF8
+  ImportAddressTableRVA: 0x925720
   Symbol: UiaGetReservedMixedAttributeValue (0)
   Symbol: UiaGetReservedNotSupportedValue (0)
   Symbol: UiaHostProviderFromHwnd (0)
@@ -431,43 +431,43 @@ Import {
 }
 Import {
   Name: api-ms-win-core-winrt-error-l1-1-0.dll
-  ImportLookupTableRVA: 0x9155F8
-  ImportAddressTableRVA: 0x916020
+  ImportLookupTableRVA: 0x924D38
+  ImportAddressTableRVA: 0x925760
   Symbol: RoOriginateErrorW (0)
 }
 Import {
   Name: shell32.dll
-  ImportLookupTableRVA: 0x915608
-  ImportAddressTableRVA: 0x916030
+  ImportLookupTableRVA: 0x924D48
+  ImportAddressTableRVA: 0x925770
   Symbol: DragFinish (0)
   Symbol: DragQueryFileW (0)
   Symbol: SHCreateItemFromParsingName (0)
 }
 Import {
   Name: dwmapi.dll
-  ImportLookupTableRVA: 0x915628
-  ImportAddressTableRVA: 0x916050
+  ImportLookupTableRVA: 0x924D68
+  ImportAddressTableRVA: 0x925790
   Symbol: DwmEnableBlurBehindWindow (0)
   Symbol: DwmSetWindowAttribute (0)
 }
 Import {
   Name: bcryptprimitives.dll
-  ImportLookupTableRVA: 0x915640
-  ImportAddressTableRVA: 0x916068
+  ImportLookupTableRVA: 0x924D80
+  ImportAddressTableRVA: 0x9257A8
   Symbol: ProcessPrng (0)
 }
 Import {
   Name: api-ms-win-core-synch-l1-2-0.dll
-  ImportLookupTableRVA: 0x915650
-  ImportAddressTableRVA: 0x916078
+  ImportLookupTableRVA: 0x924D90
+  ImportAddressTableRVA: 0x9257B8
   Symbol: WaitOnAddress (0)
   Symbol: WakeByAddressAll (0)
   Symbol: WakeByAddressSingle (0)
 }
 Import {
   Name: imm32.dll
-  ImportLookupTableRVA: 0x915670
-  ImportAddressTableRVA: 0x916098
+  ImportLookupTableRVA: 0x924DB0
+  ImportAddressTableRVA: 0x9257D8
   Symbol: ImmAssociateContextEx (1)
   Symbol: ImmGetCompositionStringW (27)
   Symbol: ImmGetContext (29)
@@ -477,21 +477,21 @@ Import {
 }
 Import {
   Name: advapi32.dll
-  ImportLookupTableRVA: 0x9156A8
-  ImportAddressTableRVA: 0x9160D0
+  ImportLookupTableRVA: 0x924DE8
+  ImportAddressTableRVA: 0x925810
   Symbol: ImpersonateAnonymousToken (296)
   Symbol: RevertToSelf (552)
 }
 Import {
   Name: uxtheme.dll
-  ImportLookupTableRVA: 0x9156C0
-  ImportAddressTableRVA: 0x9160E8
+  ImportLookupTableRVA: 0x924E00
+  ImportAddressTableRVA: 0x925828
   Symbol: SetWindowTheme (74)
 }
 Import {
   Name: opengl32.dll
-  ImportLookupTableRVA: 0x9156D0
-  ImportAddressTableRVA: 0x9160F8
+  ImportLookupTableRVA: 0x924E10
+  ImportAddressTableRVA: 0x925838
   Symbol: wglCreateContext (337)
   Symbol: wglDeleteContext (339)
   Symbol: wglGetCurrentContext (341)
@@ -502,7 +502,7 @@ Import {
 }
 Resources [
   Total Number of Resources: 1
-  Base Table Address: 0x9CDC00
+  Base Table Address: 0x9E0400
   
   Number of String Entries: 0
   Number of ID Entries: 1
@@ -521,7 +521,7 @@ Resources [
         Minor Version: 0
         Characteristics: 0
         Data [
-          DataRVA: 0x9D5060
+          DataRVA: 0x9E8060
           DataSize: 847
           Codepage: 0
           Reserved: 0
