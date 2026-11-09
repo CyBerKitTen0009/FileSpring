@@ -30,7 +30,11 @@
 - GUI 为 x86-64 PE32+ Windows 子系统，CLI 为控制台子系统；两者嵌入 Windows 10/11、asInvoker 和 longPathAware 清单。打包检查 [DLL 与清单记录](evidence/windows-pe-audit.json)，未发现外部 VC 运行库或 SQLite DLL 依赖。清单与长路径声明不代表运行兼容性已验证。
 - 便携包附 `Verify-Windows.cmd`、`Launch-Demo.cmd` 和生成样本。`self-test` 在 Mac 实际验证 9 项核心行为，并通过“既有目录拒绝复用、全局 state 不被使用”的真实 CLI 子进程回归；Windows 上仍待运行。
 - Windows 专项测试包括独占锁（预演前/预演后）、只读源、设备别名与 ADS、超过 260 字符的路径、预演后 Junction 替换。以上仅编译通过，没有冒充运行结果。
-- 按用户安排，下一步在 Windows 10/11 实机执行包内验证脚本及 [Windows 手动回归](WINDOWS.md)。CI 仅保留 macOS 和 Windows，Linux 暂缓；远端 CI 尚未执行。
+- 按用户安排，下一步在 Windows 10/11 实机执行包内验证脚本及 [Windows 手动回归](WINDOWS.md)。CI 仅保留 macOS 和 Windows，Linux 暂缓；远端结果见 [GitHub Actions](https://github.com/CyBerKitTen0009/FileSpring/actions)。
+
+## 首次 GitHub Actions 检查（2026-11-09）
+
+[首次运行](https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42545451591) 的 Mac ARM 检查、CLI、Release 和打包通过。Windows Server 2022 上的格式检查、Clippy、实际测试、Release、11 次 CLI 流程和 `self-test` 已通过；最后的许可收集因 target 限定下载未包含全平台源码缓存而失败。已将 Windows 构建前的下载改为完整锁定依赖缓存，并保留失败时的日志成品，等待新一次运行验证打包。该 CI 记录不能替代 Windows 10/11 桌面与缩放验证。
 
 ## 新版界面复验（2026-11-09）
 
@@ -75,4 +79,4 @@ GUI 无窗口测试在 100,000 个逻辑条目中每帧最多建立 23 行，20 
 
 冷启动、空闲/峰值内存、真实窗口帧率/输入延迟、复制吞吐、独立哈希吞吐、缩略图生成、索引大小、100 万条索引与搜索、真实跨卷、文件系统断连、硬件断电、真实 Windows/Linux、NTFS/FAT/exFAT/ext4/Btrfs/NAS、完整元数据保留和恶意并发路径替换。索引和搜索尚未实现，因此没有编造百万条结果。
 
-本报告支持“Phase 1 可运行原型”的结论，不支持“完整产品”“全部平台兼容”或“150 MB 内存目标已达成”的结论。跨平台 CI 方案使用 [GitHub 官方列出的运行器标签](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)；本次没有远端 CI 运行记录。
+本报告支持“Phase 1 可运行原型”的结论，不支持“完整产品”“全部平台兼容”或“150 MB 内存目标已达成”的结论。跨平台 CI 方案使用 [GitHub 官方列出的运行器标签](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)；本机记录与远端记录分别保留，远端构建见 [GitHub Actions](https://github.com/CyBerKitTen0009/FileSpring/actions)。

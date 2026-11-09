@@ -29,7 +29,9 @@ def run(command, log=None):
 
 
 if not args.offline:
-    run(["cargo", "fetch", "--locked", "--target", target])
+    # License collection uses all-platform metadata. A target-limited fetch
+    # leaves those crate sources absent on a clean Windows builder.
+    run(["cargo", "fetch", "--locked"])
 run([sys.executable, "tools/check.py", "--target", target])
 run(["cargo", "build", "--offline", "--locked", "--release", "--target", target, "--features", "desktop"], root / "docs/evidence/windows-native-build.log")
 artifacts = root / "artifacts"

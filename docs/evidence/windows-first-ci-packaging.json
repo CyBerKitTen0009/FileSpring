@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-09",
+  "run": "https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42545451591",
+  "source_commit": "8bb2d73c4fd78fd2737c7f3250a9081bc8980417",
+  "platform": "GitHub-hosted Windows Server 2022 x64",
+  "passed": [
+    "rustfmt",
+    "Clippy all targets",
+    "Actual Rust unit and integration tests",
+    "Debug and Release builds",
+    "11-command CLI smoke",
+    "Portable self-test"
+  ],
+  "failure": "Offline license metadata needed accesskit_atspi_common, absent after cargo fetch --target x86_64-pc-windows-msvc.",
+  "fix": "Fetch all locked dependency sources before offline all-platform license collection.",
+  "windows_10_11_desktop_verified": false
+}

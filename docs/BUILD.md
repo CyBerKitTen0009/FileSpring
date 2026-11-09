@@ -12,6 +12,8 @@ cargo test --locked --features desktop
 
 后续无网络可加 `--offline`。首次 fetch 需要网络。只在本项目的 `.cache` 和 `target` 下写入构建依赖。
 
+离线打包前应运行不带 `--target` 的 `cargo fetch --locked`：许可收集使用全平台依赖元数据，只有 Windows target 的缓存不足以收集完整许可材料。下载这些源码不会构建或交付 Linux 版本；Windows 构建脚本已自动完成这一步。
+
 ## 平台
 
 - macOS：Xcode Command Line Tools。`cargo build --release --features desktop` 后运行 `python3 tools/package_macos.py`，在 `artifacts/FileSpring.app` 得到未签名开发包。`--debug` 可打包 debug 构建。尚未签名、公证、生成 DMG 或验证最低系统版本；Info.plist 的 11.0 仅为目标配置。
