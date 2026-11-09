@@ -1,6 +1,6 @@
 # 测试与性能记录
 
-自动化复验：2026-11-08；原生 GUI 与扫描基准：2026-11-06（Asia/Shanghai）。环境：macOS 26.6.2、Apple Silicon/aarch64、原生 Rust/Cargo 1.98.0。Windows 交叉构建使用已有的 Rust 1.97.1 MSVC target、Clang 22 和 SDK 缓存，未全局安装依赖。当前本地卷支持硬链接；沙箱内无法使用 DiskManagement 查询确切卷格式。未测机械硬盘、旧双核机器、第二卷或其他操作系统。
+自动化与新版原生 GUI 复验：2026-11-09；扫描基准：2026-11-06（Asia/Shanghai）。环境：macOS 26.6.2、Apple Silicon/aarch64、原生 Rust/Cargo 1.98.0。Windows 交叉构建使用已有的 Rust 1.97.1 MSVC target、Clang 22 和 SDK 缓存，未全局安装依赖。当前本地卷支持硬链接；沙箱内无法使用 DiskManagement 查询确切卷格式。未测机械硬盘、旧双核机器、第二卷或其他操作系统。
 
 ## 自动化结果
 
@@ -10,7 +10,7 @@
 | --- | --- |
 | rustfmt | [通过](evidence/format.log) |
 | Clippy（全部 targets、desktop、warnings as errors） | [通过](evidence/clippy.log) |
-| 测试 | [36 项通过](evidence/tests.log)：8 项恢复边界、1 项 Windows 名称纯校验、5 项 GUI/预览/剪贴板、22 项集成；包含一个仅用于子进程中断测试的辅助入口 |
+| 测试 | [37 项通过](evidence/tests.log)：8 项恢复边界、1 项 Windows 名称纯校验、6 项 GUI/预览/剪贴板/完整布局、22 项集成；包含一个仅用于子进程中断测试的辅助入口 |
 | Debug CLI 和原生桌面构建 | [通过](evidence/build.log) |
 | Release CLI 和原生桌面构建 | [通过](evidence/release-build.log)；本地 macOS `.app` 约 13 MB，包含许可证材料，不代表运行内存 |
 | CLI 真实子进程端到端 | [11 次命令调用通过](evidence/cli-smoke.json)：复制/移动、拒绝缺少确认、查看、历史和撤销 |
@@ -23,7 +23,7 @@
 
 非 Unicode 名称的写操作拒绝测试仅在 Linux 启用，因为本机本地卷拒绝创建测试名称；Windows 独占文件锁测试也仅在 Windows 启用。本次未执行它们。测试过程修正过 headless 纹理 delta 释放方式和平台测试条件；所附日志是最终源码的通过记录。
 
-## Windows 10/11 x64 构建与待验证项（2026-11-08）
+## Windows 10/11 x64 构建与待验证项（2026-11-09）
 
 - [Windows Release 交叉构建](evidence/windows-cross-build.log)、[跨目标 Clippy](evidence/windows-cross-clippy.log)、[Windows 测试编译](evidence/windows-test-build.log) 均通过。测试使用 `--no-run`，未执行 Windows 测试 EXE。
 - 交叉链接保留了 SDK 静态 CRT 缺少上游调试 PDB 的 LNK4099 警告；缺少的是调试符号，不是运行时 DLL。没有隐藏这些警告，也没有把构建成功当成运行成功。
@@ -31,6 +31,12 @@
 - 便携包附 `Verify-Windows.cmd`、`Launch-Demo.cmd` 和生成样本。`self-test` 在 Mac 实际验证 9 项核心行为，并通过“既有目录拒绝复用、全局 state 不被使用”的真实 CLI 子进程回归；Windows 上仍待运行。
 - Windows 专项测试包括独占锁（预演前/预演后）、只读源、设备别名与 ADS、超过 260 字符的路径、预演后 Junction 替换。以上仅编译通过，没有冒充运行结果。
 - 按用户安排，下一步在 Windows 10/11 实机执行包内验证脚本及 [Windows 手动回归](WINDOWS.md)。CI 仅保留 macOS 和 Windows，Linux 暂缓；远端 CI 尚未执行。
+
+## 新版界面复验（2026-11-09）
+
+按 Apple 风格重写侧栏、工具栏、文件列表与操作预演，设计与验证范围见 [DESIGN.md](DESIGN.md)。macOS 原生窗口实测：深色中文与浅色英文切换、名称筛选、历史页；在新生成的 `demo/apple-ui-review` 样本中复制 `项目笔记 09.txt`，预演确认后 Library 从 1 项变为 2 项，确认撤销后恢复为 1 项，计划 `9268ede2` 为 RolledBack。全程未使用个人文件。
+
+新增完整页面布局回归，覆盖 960×640 / 1240×800、深/浅色、中/英文和文件/历史页。自绘行补充辅助功能标签与选择状态。此检查不代替完整屏幕阅读器、Windows 10/11 桌面、缩放和手动拖放验证。观察记录见 [新版 GUI 回归](evidence/apple-ui-regression.json)。
 
 ## 原生窗口实际操作
 

@@ -1,150 +1,174 @@
 Cross-compiled on macOS; this is not a Windows runtime test.
 Command: /Users/apple/.cargo/bin/cargo test --offline --locked --target x86_64-pc-windows-msvc --features desktop --no-run
 
-    Blocking waiting for file lock on build directory
-   Compiling windows-link v0.2.1
-   Compiling cfg-if v1.0.5
-   Compiling bitflags v2.13.2
-   Compiling simd-adler32 v0.3.10
-   Compiling once_cell v1.21.4
-   Compiling smallvec v1.16.4
-   Compiling adler2 v2.0.1
-   Compiling bytemuck v1.25.2
-   Compiling foldhash v0.2.0
-   Compiling num-traits v0.2.19
-   Compiling crc32fast v1.5.4
-   Compiling miniz_oxide v0.9.1
-   Compiling hashbrown v0.17.1
-   Compiling arrayvec v0.7.8
-   Compiling miniz_oxide v0.8.9
-   Compiling font-types v0.12.7
-   Compiling fdeflate v0.3.7
-   Compiling windows-result v0.4.1
-   Compiling polycool v0.4.0
-   Compiling flate2 v1.1.10
-   Compiling read-fonts v0.41.0
-   Compiling windows-strings v0.5.1
-   Compiling linebender_resource_handle v0.1.1
-   Compiling log v0.4.35
-   Compiling euclid v0.22.14
-   Compiling kurbo v0.13.1
-   Compiling getrandom v0.4.3
-   Compiling color v0.3.3
-   Compiling png v0.18.1
-   Compiling windows-core v0.62.2
-   Compiling thiserror v2.0.21
-   Compiling windows_x86_64_msvc v0.52.6
-   Compiling windows-sys v0.61.2
-   Compiling fearless_simd v0.4.1
-   Compiling guillotiere v0.7.0
-   Compiling unicode-segmentation v1.13.3
-   Compiling windows-targets v0.52.6
-   Compiling peniko v0.6.1
-   Compiling uuid v1.29.0
-   Compiling windows-threading v0.2.1
-   Compiling scopeguard v1.2.0
-   Compiling lock_api v0.4.14
-   Compiling windows-future v0.3.2
-   Compiling accesskit v0.25.2
-   Compiling windows-sys v0.52.0
-   Compiling parking_lot_core v0.9.12
-   Compiling zerocopy v0.8.63
-   Compiling windows-numerics v0.3.1
-   Compiling windows-collections v0.3.2
-   Compiling emath v0.37.0
-   Compiling raw-window-handle v0.6.2
-   Compiling windows v0.62.2
-   Compiling ecolor v0.37.0
-   Compiling parking_lot v0.12.5
-   Compiling unicode-general-category v1.1.0
-   Compiling epaint_default_fonts v0.37.0
-   Compiling profiling v1.0.18
-   Compiling static_assertions v1.1.0
-   Compiling tracing-core v0.1.36
-   Compiling unicode-properties v0.1.5
-   Compiling pin-project-lite v0.2.17
-   Compiling self_cell v1.3.0
-   Compiling nohash-hasher v0.2.0
-   Compiling tracing v0.1.44
-   Compiling smol_str v0.2.2
-   Compiling dpi v0.1.2
-   Compiling either v1.19.0
-   Compiling cursor-icon v1.2.0
-   Compiling pxfm v0.1.30
-   Compiling windows_x86_64_msvc v0.53.1
-   Compiling itertools v0.15.0
-   Compiling accesskit_consumer v0.39.2
-   Compiling vello_common v0.2.0
-   Compiling byteorder-lite v0.1.0
-   Compiling winit v0.30.13
-   Compiling ahash v0.8.12
-   Compiling utf8parse v0.2.2
-   Compiling once_cell_polyfill v1.70.2
-   Compiling anstyle v1.0.14
-   Compiling error-code v3.4.0
-   Compiling anstyle-parse v1.0.0
-   Compiling anstyle-wincon v3.0.11
-   Compiling clipboard-win v5.4.3
-   Compiling glutin_egl_sys v0.7.1
-   Compiling windows-targets v0.53.5
-   Compiling glutin_wgl_sys v0.6.1
-   Compiling anstyle-query v1.1.5
-   Compiling libloading v0.8.9
-   Compiling skrifa v0.44.0
-   Compiling harfrust v0.12.0
-   Compiling moxcms v0.8.1
-   Compiling colorchoice v1.0.5
-   Compiling parlance v0.1.1
-   Compiling memmap2 v0.9.12
-   Compiling is_terminal_polyfill v1.70.2
-   Compiling anstream v1.0.0
-   Compiling glutin v0.32.3
-   Compiling windows-sys v0.60.2
-   Compiling glifo v0.3.0
-   Compiling vello_cpu v0.2.0
-   Compiling image v0.25.10
-   Compiling serde_core v1.0.229
-   Compiling epaint v0.37.0
-   Compiling poll-promise v0.3.0
-   Compiling unicode-script v0.5.9
-   Compiling clap_lex v1.1.1
-   Compiling arboard v3.7.0
-   Compiling web-time v1.1.0
-   Compiling sys-locale v0.3.2
-   Compiling strsim v0.11.1
-   Compiling glow v0.17.0
-   Compiling clap_builder v4.6.7
-   Compiling libsqlite3-sys v0.39.1
-   Compiling egui v0.37.0
-   Compiling accesskit_windows v0.35.2
-   Compiling accesskit_winit v0.34.2
-   Compiling fontique v0.11.1
-   Compiling glutin-winit v0.5.0
-   Compiling zmij v1.0.23
-   Compiling winapi v0.3.9
-   Compiling hashlink v0.12.2
-   Compiling memchr v2.8.3
-   Compiling constant_time_eq v0.4.2
-   Compiling egui_system_font_provider v0.37.0
-   Compiling fallible-iterator v0.3.0
-   Compiling fallible-streaming-iterator v0.1.9
-   Compiling itoa v1.0.18
-   Compiling cpufeatures v0.3.1
+warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type_info_static.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(gs_cookie.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(fltused.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(tlssup.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(delete_scalar_size.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(gs_report.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(delete_scalar.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(exe_main.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(loadcfg.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(utility.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(gs_support.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(matherr.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(argv_mode.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(commit_mode.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(file_mode.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(new_mode.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(thread_locale.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(tncleanup.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(env_mode.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(invalid_parameter_handler.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(denormal_control.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(default_local_stdio_options.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(matherr_detection.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(dyn_tls_init.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(dyn_tls_dtor.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(utility_desktop.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(initsect.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(initializers.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(guard_support.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(cpu_disp.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(ucrt_detection.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(throw.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(riscchandler.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(risctrnsctrl.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(ehhelpers.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(softmemtag.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(std_type_info.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(initialization.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(strchr.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(strrchr.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(pesect.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(jbcxrval.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(per_thread_data.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(ehstate.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(frame.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(gshandler.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(undname.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(locks.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(winapi_downlevel.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(std_exception.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libcmt.lib(gshandlerseh.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(purevirt.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(jmpuwind.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(wcschr.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+         
+         rust-lld: Cannot use debug info for 'libvcruntime.lib(purevirt_data.obj)' [LNK4099]
+         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
    Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
-   Compiling blake3 v1.8.7
-   Compiling serde_json v1.0.154
-   Compiling rusqlite v0.41.1
-   Compiling fs2 v0.4.3
-   Compiling serde v1.0.229
-   Compiling clap v4.6.7
-   Compiling rfd v0.16.1
-   Compiling anyhow v1.0.104
-   Compiling file-id v0.2.3
-   Compiling egui_glow v0.37.0
-   Compiling egui-winit v0.37.0
-   Compiling fastrand v2.5.0
-   Compiling tempfile v3.27.0
-   Compiling eframe v0.37.0
 warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type_info_static.obj)' [LNK4099]
          >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
          
@@ -312,181 +336,14 @@ warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type
   |
   = note: `#[warn(linker_messages)]` on by default
 
-warning: `filespring` (bin "filespring" test) generated 1 warning
-warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type_info_static.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(gs_cookie.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(fltused.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(tlssup.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(delete_scalar_size.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(gs_report.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(delete_scalar.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(exe_main.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(loadcfg.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(utility.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(gs_support.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(matherr.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(argv_mode.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(commit_mode.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(file_mode.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(new_mode.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(thread_locale.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(tncleanup.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(env_mode.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(invalid_parameter_handler.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(denormal_control.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(default_local_stdio_options.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(matherr_detection.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(dyn_tls_init.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(dyn_tls_dtor.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(utility_desktop.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(initsect.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(initializers.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(guard_support.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(cpu_disp.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(ucrt_detection.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(throw.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(riscchandler.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(risctrnsctrl.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(ehhelpers.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(softmemtag.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(std_type_info.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(initialization.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(strchr.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(strrchr.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(pesect.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(jbcxrval.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(per_thread_data.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(ehstate.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(frame.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(gshandler.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(undname.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(locks.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(winapi_downlevel.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(std_exception.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libcmt.lib(gshandlerseh.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(purevirt.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(jmpuwind.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(wcschr.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-         
-         rust-lld: Cannot use debug info for 'libvcruntime.lib(purevirt_data.obj)' [LNK4099]
-         >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libvcruntime.amd64.pdb': No such file or directory
-  |
-  = note: `#[warn(linker_messages)]` on by default
-
-warning: `filespring` (example "scan_benchmark") generated 1 warning
+warning: `filespring` (lib test) generated 1 warning
+warning: `filespring` (example "scan_benchmark") generated 1 warning (1 duplicate)
 warning: `filespring` (test "operations") generated 1 warning (1 duplicate)
 warning: `filespring` (bin "filespring") generated 1 warning (1 duplicate)
-warning: `filespring` (lib test) generated 1 warning (1 duplicate)
+warning: `filespring` (bin "filespring" test) generated 1 warning
 warning: `filespring` (bin "filespring-desktop" test) generated 1 warning (1 duplicate)
 warning: `filespring` (bin "filespring-desktop") generated 1 warning (1 duplicate)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.07s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.42s
   Executable unittests src/lib.rs (target/x86_64-pc-windows-msvc/debug/deps/filespring-e29fe6ef02003cbd.exe)
   Executable unittests src/main.rs (target/x86_64-pc-windows-msvc/debug/deps/filespring-7a7280ddfd7143bb.exe)
   Executable unittests src/bin/desktop.rs (target/x86_64-pc-windows-msvc/debug/deps/filespring_desktop-02ff06ab0e244046.exe)

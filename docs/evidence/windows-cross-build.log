@@ -1,6 +1,7 @@
 Cross-compiled on macOS; this is not a Windows runtime test.
 Command: /Users/apple/.cargo/bin/cargo build --offline --locked --target x86_64-pc-windows-msvc --features desktop --release
 
+    Blocking waiting for file lock on build directory
    Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
 warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type_info_static.obj)' [LNK4099]
          >>> failed to load reference 'D:\a\_work\1\s\binaries\amd64ret\lib\amd64\libcmt.amd64.pdb': No such file or directory
@@ -171,6 +172,6 @@ warning: linker stderr: rust-lld: Cannot use debug info for 'libcmt.lib(std_type
 
 warning: `filespring` (bin "filespring") generated 1 warning
 warning: `filespring` (bin "filespring-desktop") generated 1 warning (1 duplicate)
-    Finished `release` profile [optimized] target(s) in 13.57s
+    Finished `release` profile [optimized] target(s) in 24.03s
 
 Exit code: 0

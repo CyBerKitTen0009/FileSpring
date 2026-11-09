@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-09",
+  "platform": "macOS arm64",
+  "method": "Native app via CUA accessibility and screenshots",
+  "fixture": "demo/apple-ui-review (generated)",
+  "plan": "9268ede2",
+  "passed": [
+    "Dark Chinese workspace visual inspection",
+    "Light English workspace visual inspection",
+    "Filename filter 09 returns only matching sample",
+    "Copy preview requires explicit confirmation",
+    "Copy completes: destination 1 -> 2 items",
+    "Undo modal requires explicit confirmation",
+    "Undo completes: destination 2 -> 1 items, RolledBack",
+    "Activity page shows recorded plan",
+    "Application exits through Cmd+Q"
+  ],
+  "not_verified": [
+    "Windows 10/11 desktop runtime",
+    "Native drag and drop",
+    "Complete screen reader workflow",
+    "Windows display scaling"
+  ],
+  "note": "Native test preceded final accessibility-label and scrolling-conflict refinements; automated layout and unit checks cover final source."
+}

@@ -1,7 +1,2 @@
-Native macOS release build
-Command: cargo build --offline --locked --release --features desktop
-
    Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
-    Finished `release` profile [optimized] target(s) in 16.78s
-
-Exit code: 0
+    Finished `release` profile [optimized] target(s) in 13.42s

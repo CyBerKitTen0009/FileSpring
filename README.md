@@ -1,5 +1,7 @@
 # FileSpring
 
+原生双栏文件工作台 · macOS / Windows 10 & 11 · GPLv3
+
 离线优先的原生文件工作台。项目根据 [prompt1.md](prompt1.md) 开发，采用 Rust、SQLite 和 egui 原生窗口，不包含 Electron、Chromium 或 WebView。
 
 **当前是 Phase 1 开发原型，不是完整产品或正式发行版。** 已有真实文件浏览、复制、移动、预演、持久化日志、显式恢复与撤销。每个修改都会经过同一个操作引擎。目前仅支持普通文件，不支持目录递归操作、覆盖、删除、同步或备份。
@@ -17,7 +19,7 @@ python3 tools/make_demo.py
 cargo run --features desktop --bin filespring-desktop -- --root "$PWD/demo" --state "$PWD/demo/state"
 ```
 
-默认中文，可在侧栏切换英文或主题。左、右栏分别打开 `demo/Inbox` 和 `demo/Library`，选择普通文件后点击复制或移动，查看计划并确认。历史页面可以撤销。所有示例文件均由项目生成；不要用真实重要文件验证开发原型。
+界面采用 Apple 风格的侧栏、紧凑工具栏和双栏列表，提供深浅主题、原始矢量图标与底部操作预演面板，见 [界面设计](docs/DESIGN.md)。默认中文，可在侧栏切换英文或主题。左、右栏分别打开 `demo/Inbox` 和 `demo/Library`，选择普通文件后点击复制或移动，查看计划并确认。历史页面可以撤销。所有示例文件均由项目生成；不要用真实重要文件验证开发原型。
 
 不传 `--root` 时先弹出系统目录选择器，取消就退出，不会自动扫描个人目录。原生应用默认在所选目录的 `.filespring` 中保存操作记录。用 `--root` 可以授权多个根目录，状态路径可用 `--state` 单独指定。核心拒绝越过这些根目录和跟随符号链接；该边界是应用级校验，并非针对恶意进程的 OS 沙箱。
 
@@ -58,4 +60,4 @@ cargo run --release --example scan_benchmark
 - 仅保留文件内容、基础权限和修改时间；ACL、扩展属性、资源叉、稀疏特性、硬链接拓扑尚未完整保留。对这些元数据有要求的文件不应使用本原型迁移。
 - 不承诺抵御外部恶意进程同时替换路径的竞态，不应在不可信共享目录中用于重要数据操作。
 
-GPL-3.0-only；依赖许可信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+源代码以 **GNU General Public License v3.0 only（GPL-3.0-only）** 开源，完整条款见 [LICENSE](LICENSE)。你可以按该许可使用、修改和再分发；本软件不提供任何担保。依赖许可信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

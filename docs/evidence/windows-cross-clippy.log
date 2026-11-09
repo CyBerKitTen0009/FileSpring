@@ -1,10 +1,7 @@
 Cross-compiled on macOS; this is not a Windows runtime test.
 Command: /Users/apple/.cargo/bin/cargo clippy --offline --locked --target x86_64-pc-windows-msvc --features desktop --all-targets -- -D warnings
 
-    Blocking waiting for file lock on package cache
-    Blocking waiting for file lock on package cache
-    Blocking waiting for file lock on package cache
-    Checking filespring v0.1.0 (/Users/apple/Projects/FileSpring)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.62s
+   Compiling filespring v0.1.0 (/Users/apple/Projects/FileSpring)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.07s
 
 Exit code: 0

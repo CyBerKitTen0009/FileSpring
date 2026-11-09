@@ -23,5 +23,6 @@
     "state_databases_included": false,
     "matches_latest_release_binaries": true,
     "windows_runtime_executed": false
-  }
+  },
+  "validated": "2026-11-09"
 }
