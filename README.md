@@ -6,7 +6,7 @@
 
 **当前是 Phase 1 开发原型，不是完整产品或正式发行版。** 已有真实文件浏览、复制、移动、预演、持久化日志、显式恢复与撤销。每个修改都会经过同一个操作引擎。目前仅支持普通文件，不支持目录递归操作、覆盖、删除、同步或备份。
 
-当前交付目标为 **macOS + Windows 10/11 x64**，Linux 暂缓。Windows 提供原生 EXE 便携 ZIP、演示目录和无需额外运行时的 `Verify-Windows.cmd`，见 [Windows 使用与验证](docs/WINDOWS.md)。Windows 已完成交叉构建和二进制检查，实机运行尚待验证。
+当前交付目标为 **macOS + Windows 10/11 x64**，Linux 暂缓。Windows 提供原生 EXE 便携 ZIP、演示目录和无需额外运行时的 `Verify-Windows.cmd`，见 [Windows 使用与验证](docs/WINDOWS.md)。Mac ARM、Intel 与 Windows 云端构建、测试和打包已通过；Windows 10/11 桌面交互仍待实机验证。
 
 ## 本地运行
 

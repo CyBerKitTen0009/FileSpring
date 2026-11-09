@@ -2,7 +2,7 @@
 
 当前目标：Windows 10 / 11 **64 位 x86-64**，优先验证 Win10 22H2 与 Win11。32 位 Windows、Windows ARM64 尚未纳入当前交付。Linux 暂缓。与 macOS 共用 Rust 文件引擎和原生 GUI，不使用 WebView。
 
-此包为未签名的 Phase 1 开发原型。Windows EXE 已可在 Mac 上交叉编译，PE 架构、桌面/控制台子系统、嵌入清单和静态 CRT 依赖会在打包时检查；**交叉编译不代表 Win10/11 已运行通过**。实机验证结果需另行记录。
+此包为未签名的 Phase 1 开发原型。Windows EXE 已可在 Mac 上交叉编译，PE 架构、桌面/控制台子系统、嵌入清单和静态 CRT 依赖会在打包时检查；**交叉编译不代表 Win10/11 已运行通过**。Windows Server 2022 云端构建、39 项自动测试、CLI 和便携包打包已通过；Windows 10/11 桌面验证结果需另行记录。
 
 ## 解压与验证（不需要安装 Rust、Python 或管理员权限）
 
@@ -18,7 +18,7 @@
 
 - 目前以本地 NTFS 普通文件为验证基线，目标卷需支持硬链接。FAT/exFAT、NAS/SMB、真实跨卷及断连未验证。
 - 只读源文件的修改操作会在预演时拒绝。不会自动清除只读属性；Windows ACL、ADS、稀疏属性等尚未完整保留。
-- 拒绝 NTFS 流路径、DOS 设备别名、尾随空格/点及重解析点遍历。Junction、独占锁、超 260 字符路径的集成测试已编写，需在 Windows 上运行。
+- 拒绝 NTFS 流路径、DOS 设备别名、尾随空格/点及重解析点遍历。Junction、独占锁、超 260 字符路径的集成测试已在 Windows Server 2022 CI 上运行通过，Windows 10/11 仍需验证。
 - 清单声明 Windows 10/11 兼容、普通用户权限和长路径感知，不会更改系统长路径策略；不能据此宣称所有长路径组合都兼容。
 - 系统文件剪贴板与资源管理器互通、原生拖放、旧机器显卡驱动和低配性能仍需实测。当前使用 Glow/OpenGL，需要可用的 OpenGL 驱动。
 - 未代码签名、未生成安装器、尚未完成正式发行所需的许可与兼容性审核。
@@ -33,7 +33,7 @@ python tools/build_windows.py
 
 该脚本执行格式、Clippy、测试、Release、真实 CLI 子进程测试和打包；已缓存全部依赖时可加 `--offline`。成品位于 `artifacts/FileSpring-0.1.0-windows-x64-portable.zip`，另有 SHA-256 文件。构建不会更改系统级配置，也不会自动安装上述开发依赖。
 
-原生 Windows 构建使用 `.cargo/config.toml` 静态链接 CRT；`build.rs` 将清单嵌入 GUI 和 CLI。GitHub Actions 会构建并上传 Windows ZIP 与 macOS 包，但 Server 2022 CI 不能替代 Win10/11 的桌面交互检查，当前工作区尚无远端 CI 运行记录。
+原生 Windows 构建使用 `.cargo/config.toml` 静态链接 CRT；`build.rs` 将清单嵌入 GUI 和 CLI。GitHub Actions 会构建并上传 Windows ZIP 与 macOS 包，但 Server 2022 CI 不能替代 Win10/11 的桌面交互检查，已通过的远端记录见 [GitHub Actions](https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42546291161)。
 
 ## Mac 上复现交叉构建
 

@@ -1,6 +1,6 @@
 # 测试与性能记录
 
-自动化与新版原生 GUI 复验：2026-11-09；扫描基准：2026-11-06（Asia/Shanghai）。环境：macOS 26.6.2、Apple Silicon/aarch64、原生 Rust/Cargo 1.98.0。Windows 交叉构建使用已有的 Rust 1.97.1 MSVC target、Clang 22 和 SDK 缓存，未全局安装依赖。当前本地卷支持硬链接；沙箱内无法使用 DiskManagement 查询确切卷格式。未测机械硬盘、旧双核机器、第二卷或其他操作系统。
+自动化与新版原生 GUI 复验：2026-11-09；扫描基准：2026-11-06（Asia/Shanghai）。环境：macOS 26.6.2、Apple Silicon/aarch64、原生 Rust/Cargo 1.98.0。Windows 交叉构建使用已有的 Rust 1.97.1 MSVC target、Clang 22 和 SDK 缓存，未全局安装依赖。当前本地卷支持硬链接；沙箱内无法使用 DiskManagement 查询确切卷格式。本机未测机械硬盘、旧双核机器或第二卷；远端 Mac ARM / Intel 与 Windows Server 2022 结果单独列于下文。
 
 ## 自动化结果
 
@@ -21,20 +21,20 @@
 
 恢复测试覆盖：部分暂存、身份未知暂存保留、暂存后目标冲突、发布后外部编辑、目标发布尚未更新日志、源移除尚未写 Completed、撤销发布尚未记日志、撤销删除尚未记日志。另有真实测试子进程不执行析构即退出，父进程重新打开 SQLite 和 OS 锁，观察 Running/部分完成状态，显式继续后再撤销。
 
-非 Unicode 名称的写操作拒绝测试仅在 Linux 启用，因为本机本地卷拒绝创建测试名称；Windows 独占文件锁测试也仅在 Windows 启用。本次未执行它们。测试过程修正过 headless 纹理 delta 释放方式和平台测试条件；所附日志是最终源码的通过记录。
+非 Unicode 名称的写操作拒绝测试仅在 Linux 启用，因为本机本地卷拒绝创建测试名称；Windows 独占文件锁测试仅在 Windows 启用，现已在 Windows Server CI 上运行；Linux 专项未执行。测试过程修正过 headless 纹理 delta 释放方式和平台测试条件；所附日志是最终源码的通过记录。
 
 ## Windows 10/11 x64 构建与待验证项（2026-11-09）
 
-- [Windows Release 交叉构建](evidence/windows-cross-build.log)、[跨目标 Clippy](evidence/windows-cross-clippy.log)、[Windows 测试编译](evidence/windows-test-build.log) 均通过。测试使用 `--no-run`，未执行 Windows 测试 EXE。
+- [Windows Release 交叉构建](evidence/windows-cross-build.log)、[跨目标 Clippy](evidence/windows-cross-clippy.log)、[Windows 测试编译](evidence/windows-test-build.log) 均通过。本机交叉测试使用 `--no-run`；Windows Server CI 已实际执行测试，见下文。
 - 交叉链接保留了 SDK 静态 CRT 缺少上游调试 PDB 的 LNK4099 警告；缺少的是调试符号，不是运行时 DLL。没有隐藏这些警告，也没有把构建成功当成运行成功。
 - GUI 为 x86-64 PE32+ Windows 子系统，CLI 为控制台子系统；两者嵌入 Windows 10/11、asInvoker 和 longPathAware 清单。打包检查 [DLL 与清单记录](evidence/windows-pe-audit.json)，未发现外部 VC 运行库或 SQLite DLL 依赖。清单与长路径声明不代表运行兼容性已验证。
-- 便携包附 `Verify-Windows.cmd`、`Launch-Demo.cmd` 和生成样本。`self-test` 在 Mac 实际验证 9 项核心行为，并通过“既有目录拒绝复用、全局 state 不被使用”的真实 CLI 子进程回归；Windows 上仍待运行。
-- Windows 专项测试包括独占锁（预演前/预演后）、只读源、设备别名与 ADS、超过 260 字符的路径、预演后 Junction 替换。以上仅编译通过，没有冒充运行结果。
+- 便携包附 `Verify-Windows.cmd`、`Launch-Demo.cmd` 和生成样本。`self-test` 在 Mac 实际验证 9 项核心行为，并通过“既有目录拒绝复用、全局 state 不被使用”的真实 CLI 子进程回归；Windows Server CI 的 9 项自检也已通过，Windows 10/11 桌面仍待验证。
+- Windows 专项测试包括独占锁（预演前/预演后）、只读源、设备别名与 ADS、超过 260 字符的路径、预演后 Junction 替换。这些专项已在 Windows Server 2022 CI 上实际运行通过。
 - 按用户安排，下一步在 Windows 10/11 实机执行包内验证脚本及 [Windows 手动回归](WINDOWS.md)。CI 仅保留 macOS 和 Windows，Linux 暂缓；远端结果见 [GitHub Actions](https://github.com/CyBerKitTen0009/FileSpring/actions)。
 
-## 首次 GitHub Actions 检查（2026-11-09）
+## GitHub Actions 检查（2026-11-09）
 
-[首次运行](https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42545451591) 的 Mac ARM 检查、CLI、Release 和打包通过。Windows Server 2022 上的格式检查、Clippy、实际测试、Release、11 次 CLI 流程和 `self-test` 已通过；最后的许可收集因 target 限定下载未包含全平台源码缓存而失败。已将 Windows 构建前的下载改为完整锁定依赖缓存，并保留失败时的日志成品，等待新一次运行验证打包。该 CI 记录不能替代 Windows 10/11 桌面与缩放验证。
+[首次运行](https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42545451591) 的 Mac ARM 与 Intel 检查、CLI、Release 和打包通过。Windows Server 2022 上的格式检查、Clippy、实际测试、Release、11 次 CLI 流程和 `self-test` 已通过；最后的许可收集因 target 限定下载未包含全平台源码缓存而失败。已将 Windows 构建前的下载改为完整锁定依赖缓存，并保留失败时的日志成品。[修复后运行](https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42546291161) 的 Mac ARM、Intel 与 Windows 三个任务全部成功。该 CI 记录不能替代 Windows 10/11 桌面与缩放验证。 Windows Server 实际通过 39 项测试（9 核心、6 GUI/headless、24 集成）、11 次 CLI 子进程调用、9 项自检；见 [Windows 测试原始日志](evidence/windows-native-tests.log) 与 [自检 JSON](evidence/windows-native-self-test.json)。
 
 ## 新版界面复验（2026-11-09）
 
@@ -77,6 +77,6 @@ GUI 无窗口测试在 100,000 个逻辑条目中每帧最多建立 23 行，20 
 
 ## 尚未验证
 
-冷启动、空闲/峰值内存、真实窗口帧率/输入延迟、复制吞吐、独立哈希吞吐、缩略图生成、索引大小、100 万条索引与搜索、真实跨卷、文件系统断连、硬件断电、真实 Windows/Linux、NTFS/FAT/exFAT/ext4/Btrfs/NAS、完整元数据保留和恶意并发路径替换。索引和搜索尚未实现，因此没有编造百万条结果。
+冷启动、空闲/峰值内存、真实窗口帧率/输入延迟、复制吞吐、独立哈希吞吐、缩略图生成、索引大小、100 万条索引与搜索、真实跨卷、文件系统断连、硬件断电、Windows 10/11 桌面、Linux、其他文件系统（FAT/exFAT/ext4/Btrfs/NAS）、完整元数据保留和恶意并发路径替换。索引和搜索尚未实现，因此没有编造百万条结果。
 
 本报告支持“Phase 1 可运行原型”的结论，不支持“完整产品”“全部平台兼容”或“150 MB 内存目标已达成”的结论。跨平台 CI 方案使用 [GitHub 官方列出的运行器标签](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)；本机记录与远端记录分别保留，远端构建见 [GitHub Actions](https://github.com/CyBerKitTen0009/FileSpring/actions)。

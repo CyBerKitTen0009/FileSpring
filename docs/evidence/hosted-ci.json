@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-09",
+  "url": "https://github.com/CyBerKitTen0009/FileSpring/actions/runs/42546291161",
+  "source_commit": "1d694fa01cb8df1f9ee28b257cf12a214b26ca5c",
+  "result": "success",
+  "jobs": [
+    "macos-15 arm64",
+    "macos-15-intel x86_64",
+    "windows-2022 x86_64"
+  ],
+  "windows": {
+    "tests_passed": 39,
+    "cli_smoke_commands": 11,
+    "self_test_checks": 9,
+    "release_build": "passed",
+    "portable_package": "passed",
+    "desktop_windows_10_11_verified": false
+  }
+}

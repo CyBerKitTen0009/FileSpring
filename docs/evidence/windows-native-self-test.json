@@ -1,0 +1,20 @@
+{
+  "arch": "x86_64",
+  "checks": [
+    "Copy: preview leaves files unchanged",
+    "Copy: verified execution",
+    "Copy: confirmed undo restores fixture",
+    "Move: preview leaves files unchanged",
+    "Move: verified execution",
+    "Move: confirmed undo restores fixture",
+    "Existing destination: preserved",
+    "Concurrent journal: blocked",
+    "Journal reopen: persistent history present"
+  ],
+  "error": null,
+  "fixture": "\\\\?\\C:\\Users\\runneradmin\\AppData\\Local\\Temp\\FileSpring-verify-a81d4e3f-8e17-4592-aab7-7506d5fc3695",
+  "os": "windows",
+  "result": "passed",
+  "scope": "New generated fixture only. This does not certify GUI, Windows 10/11 compatibility, power-loss recovery, or cross-volume operation.",
+  "version": "0.1.0"
+}
